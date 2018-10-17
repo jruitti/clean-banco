@@ -1,1 +1,30 @@
 Paquete de UnitTest
+crear cliente
+modificar cliente
+consultar cliente
+crear cuenta
+			caja de ahorro
+			caja de ahorro especial
+			cuenta corriente
+			
+			
+consultar cuenta
+
+modificar cuenta( no modifican su tipo)
+			caja de ahorro
+			caja de ahorro especial
+			cuentacorriente
+
+extraer dinero
+			caja de ahorro
+			caja de ahorro especial
+			cuentacorriente
+depositar dinero
+			caja de ahorro
+			caja de ahorro especial
+			cuentacorriente
+
+			
+DATOS OBLIGATORIOS
+CLIENTE: APELLIDO, NOMBRE CUIL
+CUENTA; NUMERO, TITULAR. saldo inicial siempre en cero
