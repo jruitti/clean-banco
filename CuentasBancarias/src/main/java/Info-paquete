@@ -1,1 +1,27 @@
 Paquete de codigo fuente
+
+crearCliente
+Modificar cliente
+consultar cliente
+				1-CAJA DE AHORRO.
+crear cuenta 	2-CAJA DE AHORRO ESPECIAL
+				3-CUENTA CORRIENTE
+
+consultar cuentas
+
+
+					1-CAJA DE AHORRO.
+modificar cuenta 	2-CAJA DE AHORRO ESPECIAL
+					3-CUENTA CORRIENTE
+					
+					
+				1-CAJA DE AHORRO.
+extraer dinero 	2-CAJA DE AHORRO ESPECIAL
+				3-CUENTA CORRIENTE
+				
+					1-CAJA DE AHORRO.
+depositar dinero 	2-CAJA DE AHORRO ESPECIAL
+					3-CUENTA CORRIENTE
+					
+cliente: obligatorios --> apellido, nombre, CUIL
+cuentas: obligatorios -->numero, titular, saldo inicial siempre 0
