@@ -1,6 +1,7 @@
 package modeloUnitTest;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,8 +11,18 @@ public class ClienteUnitTest {
 	@Test
 	public void instanciarCliente_clienteCompleto_IntanciaCliente() {
 		Cliente elCliente;
-		elCliente=Cliente.Intancia(1,"Perez","Juan","20-12345678","San Martin 100");
+		elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678","San Martin 100");
 		assertNotNull(elCliente);
 	}
+
+	@Test
+	public void instanciarCliente_clienteIncompleto_NoInstanciaCliente() {
+		Cliente elCliente;
+		elCliente=Cliente.instancia(1,null,null,null,"San Martin 100");
+		assertNull(elCliente);  
+	}
+	 
+	
+
 
 }

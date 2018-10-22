@@ -8,7 +8,7 @@ public class Cliente {
 	private String cUIL;
 	private String direccion;
 
-	public Cliente(int idCliente, String apellido, String nombre, String cUIL, String direccion) {
+	private Cliente(int idCliente, String apellido, String nombre, String cUIL, String direccion) {
 		this.idCliente = idCliente;
 		this.apellido = apellido;
 		this.nombre = nombre;
@@ -16,9 +16,32 @@ public class Cliente {
 		this.direccion = direccion;
 	}
 
-	public static Cliente Intancia(int idCliente, String apellido, String nombre, String CUIL, String direccion) {
-		
-		return new Cliente(idCliente,apellido,nombre,CUIL,direccion);
+	
+	public static Cliente instancia(Integer idCliente, String apellido, String nombre, String cuil, String direccion) {
+		if (apellido == null || nombre == null || cuil == null) {
+			return null;
+		} else {
+			return new Cliente(idCliente, apellido, nombre, cuil, direccion);
+		}
+	} 
+
+	public Integer getIdCliente() {
+		return idCliente;
 	}
 
+	public String getApellido() {
+		return apellido;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getCuil() {
+		return cUIL;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
 }
