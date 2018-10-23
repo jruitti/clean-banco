@@ -46,5 +46,17 @@ class RepositorioCliente implements IClienteRepositorio{
 	public boolean guardarCliente (Cliente pCliente) {
 		return resultado;
 	}
+
+	@Override
+	public boolean modificarCliente(Cliente persCliente) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean consultarCliente(Cliente persCliente) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }
