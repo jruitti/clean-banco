@@ -42,8 +42,18 @@ class RepositorioCliente implements IClienteRepositorio{
 	public boolean resultado;
 	
 	@Override
-	public boolean guardarCliente (Cliente pCliente) {
+	public boolean guardarCliente (Cliente persCliente) {
 		return resultado;
+	}
+
+	@Override
+	public boolean modificarCliente(Cliente persCliente) {
+		return false;
+	}
+
+	@Override
+	public boolean consultarCliente(Cliente persCliente) {
+		return false;
 	}
 	
 }

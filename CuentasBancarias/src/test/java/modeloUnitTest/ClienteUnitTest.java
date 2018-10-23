@@ -21,6 +21,13 @@ public class ClienteUnitTest {
 		elCliente=Cliente.instancia(1,null,null,null,"San Martin 100");
 		assertNull(elCliente);  
 	}
+	
+	@Test
+	public void instanciarCliente_clienteIncompletoSinError_InstanciaCliente() {
+		Cliente elCliente;
+		elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678",null);
+		assertNotNull(elCliente);  
+	}
 	 
 	
 
