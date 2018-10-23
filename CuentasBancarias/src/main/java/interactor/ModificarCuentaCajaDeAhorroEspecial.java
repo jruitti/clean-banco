@@ -2,13 +2,13 @@ package interactor;
 
 import modelo.Cliente;
 import modelo.CuentaCajaDeAhorroEspecial;
-import repositorio.ICuentaCajaDeAhoorroEspecialRepositorio;
+import repositorio.ICuentaCajaDeAhorroEspecialRepositorio;
 
 
 public class ModificarCuentaCajaDeAhorroEspecial {
-	private ICuentaCajaDeAhoorroEspecialRepositorio elRepositorio;
+	private ICuentaCajaDeAhorroEspecialRepositorio elRepositorio;
 
-	public ModificarCuentaCajaDeAhorroEspecial(ICuentaCajaDeAhoorroEspecialRepositorio elRepositorio) {
+	public ModificarCuentaCajaDeAhorroEspecial(ICuentaCajaDeAhorroEspecialRepositorio elRepositorio) {
 		this.elRepositorio = elRepositorio;
 	}
 
