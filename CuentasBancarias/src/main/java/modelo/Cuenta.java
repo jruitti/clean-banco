@@ -17,7 +17,13 @@ public class Cuenta {
 	public String getTitular() {
 		return titular;
 	}
+	public boolean extraer(double monto) {
+		
+		boolean resultado=true;
+		this.saldo -= monto;
+		return resultado;
 	
+	}
 	public double getSaldo() {
 		return saldo;
 	}
