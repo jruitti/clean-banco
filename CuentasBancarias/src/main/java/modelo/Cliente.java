@@ -16,14 +16,13 @@ public class Cliente {
 		this.direccion = direccion;
 	}
 
-	
 	public static Cliente instancia(Integer idCliente, String apellido, String nombre, String cuil, String direccion) {
 		if (apellido == null || nombre == null || cuil == null) {
 			return null;
 		} else {
 			return new Cliente(idCliente, apellido, nombre, cuil, direccion);
 		}
-	} 
+	}
 
 	public Integer getIdCliente() {
 		return idCliente;
