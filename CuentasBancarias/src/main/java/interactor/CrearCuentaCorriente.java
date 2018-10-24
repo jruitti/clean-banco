@@ -1,5 +1,7 @@
 package interactor;
 
-public class CrearCuentaCorriente {
+public class CrearCuentaCorriente{
+	
+	private I
 
 }
