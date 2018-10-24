@@ -14,6 +14,7 @@ class CrearClienteUnitTest {
 	public void crearCliente_ClienteNoExiste_ClienteCreado() {
 		RepositorioCliente elRepositorio=new RepositorioCliente();
 		elRepositorio.resultado=true;
+		
 		Cliente elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678-4","San Martin 100");
 		
 		CrearClienteUseCase crearClienteUseCase=new CrearClienteUseCase(elRepositorio);

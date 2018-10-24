@@ -6,6 +6,8 @@ public class CuentaCajaAhorro extends Cuenta {
 		super(numero, titular, saldo);
 		// TODO Auto-generated constructor stub
 	}
+
+
 	
 
 }
