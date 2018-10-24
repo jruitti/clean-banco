@@ -2,9 +2,9 @@ package modelo;
 
 public class Cuenta {
 	private String numero;
-	private String titular;
+	private Cliente titular;
 	private double saldo=0;
-	public Cuenta(String numero, String titular, double saldo) {
+	public Cuenta(String numero, Cliente titular, double saldo) {
 		super();
 		this.numero = numero;
 		this.titular = titular;
@@ -14,7 +14,7 @@ public class Cuenta {
 		return numero;
 	}
 
-	public String getTitular() {
+	public Cliente getTitular() {
 		return titular;
 	}
 	public boolean extraer(double monto) {
