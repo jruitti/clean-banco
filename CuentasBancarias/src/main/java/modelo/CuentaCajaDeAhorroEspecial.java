@@ -5,8 +5,8 @@ import java.time.LocalDate;
 public class CuentaCajaDeAhorroEspecial extends Cuenta {
 	private LocalDate ultimoExtraccion;
 	
-	public CuentaCajaDeAhorroEspecial(String numero, String titular, double saldo) {
-		super(numero, titular, saldo);
+	public CuentaCajaDeAhorroEspecial(String numero, Cliente titular) {
+		super(numero, titular);
 		ultimoExtraccion = LocalDate.now().minusYears(1);
 	}
 	

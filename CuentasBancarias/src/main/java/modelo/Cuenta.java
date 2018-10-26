@@ -3,14 +3,14 @@ package modelo;
 public class Cuenta {
 	private String numero;
 	private Cliente titular;
-	private double saldo=0;
+	private double saldo;
 
 	
-	public Cuenta(String numero, Cliente titular) {
+	protected Cuenta(String numero, Cliente titular) {
 
-		super();
 		this.numero = numero;
 		this.titular = titular;
+		saldo=0;
 		 
 	}
 	
@@ -26,12 +26,16 @@ public class Cuenta {
 		this.saldo += montoDepositar;
 	}
 	public boolean extraer(double monto) {
-		
-		boolean resultado=true;
-		this.saldo -= monto;
+		boolean resultado=false;
+		if(monto>= this.saldo) {
+			this.saldo -= monto;
+			resultado=true;
+		}
 		return resultado;
 	
 	}
+	
+	
 	public double getSaldo() {
 		return saldo;
 	}
