@@ -1,6 +1,6 @@
 package interactor;
 
-import modelo.Cliente;
+
 import modelo.CuentaCajaDeAhorroEspecial;
 import repositorio.ICuentaCajaDeAhorroEspecialRepositorio;
 
