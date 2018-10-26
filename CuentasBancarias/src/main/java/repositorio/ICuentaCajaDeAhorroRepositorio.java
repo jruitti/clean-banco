@@ -1,6 +1,5 @@
 package repositorio;
 
-import modelo.Cuenta;
 import modelo.CuentaCajaAhorro;
 
 public interface ICuentaCajaDeAhorroRepositorio {

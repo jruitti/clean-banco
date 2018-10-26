@@ -12,8 +12,7 @@ public class ExtraerDineroCajaDeAhorroUseCase {
 	}
 
 	public boolean extraerDineroCuentaCajaDeAhorro(CuentaCajaAhorro cuentaAhorro) {
-		CuentaCajaAhorro cajaAhorroNueva = new CuentaCajaAhorro(cuentaAhorro.getNumero(), cuentaAhorro.getTitular(),
-				cuentaAhorro.getSaldo());
+		CuentaCajaAhorro cajaAhorroNueva = new CuentaCajaAhorro(cuentaAhorro.getNumero(), cuentaAhorro.getTitular());
 		return elRepositorio.crearCuentaCajaDeAhorro(cajaAhorroNueva);
 	}
 

@@ -13,8 +13,7 @@ public class ModificarCuentaCajaDeAhorroUseCase {
 
 
 	public boolean ModificarCuentaCajaAhorro(CuentaCajaAhorro cuentaCajaAhorro) {
-		CuentaCajaAhorro cuentaAhorroNuevo = new CuentaCajaAhorro(cuentaCajaAhorro.getNumero(),
-				cuentaCajaAhorro.getTitular(), cuentaCajaAhorro.getSaldo());
+		CuentaCajaAhorro cuentaAhorroNuevo = new CuentaCajaAhorro(cuentaCajaAhorro.getNumero(),cuentaCajaAhorro.getTitular());
 		return elRepositorio.modificarCuentaCajaDeAhorro(cuentaAhorroNuevo);
 	}
 

@@ -12,8 +12,7 @@ public class CrearCuentaCajaAhorroUseCase {
 	}
 
 	public boolean CrearCuentaCajaAhorro(CuentaCajaAhorro cuentaCajaAhorro) {
-		CuentaCajaAhorro cuentaAhorroNuevo = new CuentaCajaAhorro(cuentaCajaAhorro.getNumero(),
-				cuentaCajaAhorro.getTitular(), cuentaCajaAhorro.getSaldo());
+		CuentaCajaAhorro cuentaAhorroNuevo = new CuentaCajaAhorro(cuentaCajaAhorro.getNumero(), cuentaCajaAhorro.getTitular());
 		return elRepositorio.crearCuentaCajaDeAhorro(cuentaAhorroNuevo);
 	}
 
