@@ -8,12 +8,15 @@ public class CrearCuentaCajaDeAhorroEspecialUseCase {
 
 	private ICuentaCajaDeAhorroEspecialRepositorio elRepositorio;
 
-	public void CrearCuentaCajaDeAhorroEspecialUseCase(ICuentaCajaDeAhorroEspecialRepositorio elRepositorio) {
+	public CrearCuentaCajaDeAhorroEspecialUseCase(ICuentaCajaDeAhorroEspecialRepositorio elRepositorio) {
 		this.elRepositorio = elRepositorio;
 	}
 
-	public boolean CrearCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial cuentaCajaAhorro) {
-		CuentaCajaDeAhorroEspecial cuentaAhorroEspecialNuevo = new CuentaCajaDeAhorroEspecial(cuentaCajaAhorro.getNumero(), cuentaCajaAhorro.getTitular());
+	public boolean CrearCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial nuevaCuentaCajaDeAhorroEspecial) {
+		if (elRepositorio.consultarCuentaCajaDeAhorroEspecial(nuevaCuentaCajaDeAhorroEspecial) ) {
+			return false;
+		}
+		CuentaCajaDeAhorroEspecial cuentaAhorroEspecialNuevo = new CuentaCajaDeAhorroEspecial(nuevaCuentaCajaDeAhorroEspecial.getNumero(), nuevaCuentaCajaDeAhorroEspecial.getTitular());
 		return elRepositorio.crearCuentaCajaDeAhorroEspecial(cuentaAhorroEspecialNuevo);
 	}
 
