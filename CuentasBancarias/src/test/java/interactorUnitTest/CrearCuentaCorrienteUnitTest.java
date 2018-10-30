@@ -1,4 +1,4 @@
-package iteratorUnitTest;
+package interactorUnitTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
