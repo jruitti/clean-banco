@@ -18,7 +18,7 @@ class CrearCuentaCajaDeAhorroEspecialUnitTest {
 		ICuentaCajaDeAhorroEspecialRepositorio elRepositorioCuentaDeCajaAhorroEspecial = new RepositorioCuentaCajaDeAhorroEspecial();
 		Cliente elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678-4","San Martin 100");
 		CuentaCajaDeAhorroEspecial laCuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("1", elCliente);
-		CrearCuentaCajaDeAhorroEspecialUseCase crearCrearCuentaCajaDeAhorroEspecialUseCase = new CrearCuentaCajaDeAhorroEspecialUseCase(elRepositorioCuentaDeCajaAhorroEspecial); 
+		CrearCuentaCajaDeAhorroEspecialUseCase crearCrearCuentaCajaDeAhorroEspecialUseCase = new CrearCuentaCajaDeAhorroEspecialUseCase(); 
 		
 		boolean resultado = crearCrearCuentaCajaDeAhorroEspecialUseCase.CrearCuentaCajaDeAhorroEspecial(laCuentaCajaDeAhorroEspecial);
 		assertTrue(resultado);
@@ -40,6 +40,12 @@ class RepositorioCuentaCajaDeAhorroEspecial implements ICuentaCajaDeAhorroEspeci
 	@Override
 	public boolean modificarCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
+	}
+
+	@Override
+	public boolean guardarCajaAhorroEspecial(CuentaCajaDeAhorroEspecial nuevaCuenta) {
+		// TODO Auto-generated method stub
+		return true;
 	}
 }
