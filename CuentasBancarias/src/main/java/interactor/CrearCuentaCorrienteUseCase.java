@@ -14,8 +14,10 @@ public class CrearCuentaCorrienteUseCase{
 	}
 
 	public boolean CrearCuentaCajaCorriente(CuentaCorriente cuentaCorriente) {
-		CuentaCorriente cuentaCorrienteNuevo = CuentaCorriente.instancia (cuentaCorriente.getNumero() , cuentaCorriente.getTitular());
-		return elRepositorio.crearCuentaCorriente(cuentaCorrienteNuevo);
+		if (!elRepositorio.consultarCuentaCorriente(cuentaCorriente)) {//CuentaCorriente cuentaCorrienteNuevo = CuentaCorriente.instancia (cuentaCorriente.getNumero() , cuentaCorriente.getTitular());
+			return elRepositorio.crearCuentaCorriente(cuentaCorriente);
+		}
+		return false;
 	}
 
 }

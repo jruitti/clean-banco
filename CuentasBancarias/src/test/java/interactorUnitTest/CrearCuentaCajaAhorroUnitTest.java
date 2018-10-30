@@ -7,13 +7,13 @@ import org.junit.jupiter.api.Test;
 import interactor.CrearCuentaCajaAhorroUseCase;
 import modelo.Cliente;
 import modelo.CuentaCajaAhorro;
-import repositorio.ICuentaCajaDeAhorroRepositorio;
+import repositorio.ICuentaCajaAhorroRepositorio;
 
 class CrearCuentaCajaAhorroUnitTest {
 
 	@Test
 	void crearCuentaCajaAhorro_CuentaCajaAhorroNoExiste_CuentaCreado() {
-		ICuentaCajaDeAhorroRepositorio elRepositorioCuentaCajaAhorro = new RepositorioCuentaCajaDeAhorro();
+		ICuentaCajaAhorroRepositorio elRepositorioCuentaCajaAhorro = new RepositorioCuentaCajaDeAhorro();
 		Cliente elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678-4","San Martin 100");
 		CuentaCajaAhorro laCuentaCajaAhorro = CuentaCajaAhorro.instancia("1", elCliente);
 		CrearCuentaCajaAhorroUseCase crearCrearCuentaCajaAhorroUseCase = new CrearCuentaCajaAhorroUseCase(elRepositorioCuentaCajaAhorro); 
@@ -24,7 +24,7 @@ class CrearCuentaCajaAhorroUnitTest {
 	}
 
 }
-class RepositorioCuentaCajaDeAhorro implements ICuentaCajaDeAhorroRepositorio{
+class RepositorioCuentaCajaDeAhorro implements ICuentaCajaAhorroRepositorio{
 
 	public boolean resultado;
 	

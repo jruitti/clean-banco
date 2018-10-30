@@ -14,7 +14,8 @@ class CrearCuentaCorrienteUnitTest {
 	@Test
 	public void crearCuentaCorriente_CuentaCorrienteNoExiste_CuentaCreada() {
 		RepositorioCuentaCorriente elRepositorio = new RepositorioCuentaCorriente();
-		elRepositorio.resultado = true;
+		elRepositorio.existeCuenta = false;
+		elRepositorio.resultado=true;
 		
 		Cliente elCliente = Cliente.instancia(1,"Perez","Juan","20-12345678-4","San Martin 100");
 		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("001", elCliente);
@@ -29,7 +30,7 @@ class CrearCuentaCorrienteUnitTest {
 	@Test
 	public void crearCuentaCorriente_CuentaCorrienteYaExiste_CuentaNoCreada() {
 		RepositorioCuentaCorriente elRepositorio = new RepositorioCuentaCorriente();
-		elRepositorio.resultado = false;
+		elRepositorio.existeCuenta= true;
 		
 		Cliente elCliente = Cliente.instancia(1,"Perez","Juan","20-12345678-4","San Martin 100");
 		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("001", elCliente);
@@ -46,6 +47,7 @@ class CrearCuentaCorrienteUnitTest {
 class RepositorioCuentaCorriente implements ICuentaCorrienteRepositorio{
 	
 	public boolean resultado;
+	public boolean existeCuenta;
 	
 	@Override
 	public boolean crearCuentaCorriente(CuentaCorriente cuentaCorrienteNuevo) {
@@ -66,8 +68,8 @@ class RepositorioCuentaCorriente implements ICuentaCorrienteRepositorio{
 
 	@Override
 	public boolean consultarCuentaCorriente(CuentaCorriente pCuentaCorriente) {
-		// TODO Auto-generated method stub
-		return false;
+
+		return existeCuenta;
 	}
 
 }
