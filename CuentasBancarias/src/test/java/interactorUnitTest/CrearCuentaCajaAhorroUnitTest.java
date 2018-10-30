@@ -31,7 +31,7 @@ class RepositorioCuentaCajaDeAhorro implements ICuentaCajaDeAhorroRepositorio{
 	@Override
 	public boolean crearCuentaCajaDeAhorro(CuentaCajaAhorro persCuentaCajaDeAhorro) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override

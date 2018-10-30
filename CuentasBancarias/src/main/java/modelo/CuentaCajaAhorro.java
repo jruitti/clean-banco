@@ -7,7 +7,7 @@ public class CuentaCajaAhorro extends Cuenta {
 	}
 
 	public static CuentaCajaAhorro instancia(String numero, Cliente titular) {
-		if ( (titular != null)|| (titular !=null) ){
+		if ( (titular != null) && (titular !=null) ){
 			return new CuentaCajaAhorro(numero, titular);			
 		}
 		return null;
