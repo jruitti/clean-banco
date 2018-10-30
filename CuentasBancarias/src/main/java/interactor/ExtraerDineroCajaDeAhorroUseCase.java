@@ -1,19 +1,18 @@
 package interactor;
 
 import modelo.CuentaCajaAhorro;
-import repositorio.ICuentaCajaAhorroRepositorio;
+import repositorio.ICuentaCajaDeAhorroRepositorio;
 
 public class ExtraerDineroCajaDeAhorroUseCase {
-	private ICuentaCajaAhorroRepositorio elRepositorio;
+	private ICuentaCajaDeAhorroRepositorio elRepositorio;
 
-	public ExtraerDineroCajaDeAhorroUseCase(ICuentaCajaAhorroRepositorio elRepositorio) {
+	public ExtraerDineroCajaDeAhorroUseCase(ICuentaCajaDeAhorroRepositorio elRepositorio) {
 		super();
 		this.elRepositorio = elRepositorio;
 	}
 
-	public boolean extraerDineroCuentaCajaDeAhorro(CuentaCajaAhorro cuentaAhorro) {
-		CuentaCajaAhorro cajaAhorroNueva = new CuentaCajaAhorro(cuentaAhorro.getNumero(), cuentaAhorro.getTitular());
-		return elRepositorio.crearCuentaCajaDeAhorro(cajaAhorroNueva);
+	public boolean extraerDineroCuentaCajaDeAhorro(CuentaCajaAhorro cuentaAhorro, Float montoDinero) {
+		return cuentaAhorro.extraer(montoDinero);
 	}
 
 }
