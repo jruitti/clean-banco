@@ -5,11 +5,19 @@ import java.time.LocalDate;
 public class CuentaCajaDeAhorroEspecial extends Cuenta {
 	private LocalDate ultimoExtraccion;
 
-	public CuentaCajaDeAhorroEspecial(String numero, Cliente titular) {
+	private CuentaCajaDeAhorroEspecial(String numero, Cliente titular) {
 		super(numero, titular);
 		ultimoExtraccion = LocalDate.now().minusYears(1);
 	}
-
+	public static CuentaCajaDeAhorroEspecial instancia(String numero, Cliente titular) {
+		if(numero == null || titular == null) {
+			return null;
+		}
+		else {
+			return new CuentaCajaDeAhorroEspecial(numero, titular);
+		}
+	}
+	
 	public boolean extraer(double monto) {
 		LocalDate fechaActual = LocalDate.now();
 
