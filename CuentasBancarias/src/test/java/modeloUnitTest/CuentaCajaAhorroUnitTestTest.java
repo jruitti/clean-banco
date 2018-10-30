@@ -13,9 +13,7 @@ class CuentaCajaAhorroUnitTestTest {
 	@Test
 	public void intaciarCuentaCajaAhorro_CuentaCompleta_IntanciaCuentaCajaAhorro() {
 		CuentaCajaAhorro cuentaCajaAhorro;
-
 		Cliente clienteCuenta = Cliente.instancia(2, "Perez", "Pepe", "12345", "Santa Rosa 321");
-
 		cuentaCajaAhorro = CuentaCajaAhorro.instancia("123456789", clienteCuenta);
 		assertNotNull(cuentaCajaAhorro);
 	}
@@ -26,7 +24,7 @@ class CuentaCajaAhorroUnitTestTest {
 		cuentaCajaAhorro = CuentaCajaAhorro.instancia("123456789", null);
 		assertNull(cuentaCajaAhorro);
 	}
-	
+
 	@Test
 	public void intaciarCuentaCajaAhorro_CuentaSaldoNegativo_IntanciaCuentaCajaAhorro() {
 		CuentaCajaAhorro cuentaCajaAhorro;
@@ -34,7 +32,7 @@ class CuentaCajaAhorroUnitTestTest {
 		cuentaCajaAhorro = CuentaCajaAhorro.instancia("123456789", clienteCuenta);
 		assertNull(cuentaCajaAhorro);
 	}
-	
+
 	@Test
 	public void intaciarCuentaCajaAhorro_CuentaSinNuemero_IntanciaCuentaCajaAhorro() {
 		CuentaCajaAhorro cuentaCajaAhorro;
@@ -42,6 +40,11 @@ class CuentaCajaAhorroUnitTestTest {
 		cuentaCajaAhorro = CuentaCajaAhorro.instancia(null, clienteCuenta);
 		assertNull(cuentaCajaAhorro);
 	}
-	
+
+	@Test
+	public void intaciarCuentaCajaAhorro_CuentaSinDatos_IntanciaCuentaCajaAhorro() {
+		CuentaCajaAhorro newCuentaCajaAhorro = CuentaCajaAhorro.instancia(null, null);
+		assertNull(newCuentaCajaAhorro);
+	}
 
 }

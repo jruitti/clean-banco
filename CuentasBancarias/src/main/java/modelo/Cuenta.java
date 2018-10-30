@@ -5,16 +5,14 @@ public class Cuenta {
 	private Cliente titular;
 	private double saldo;
 
-	
 	protected Cuenta(String numero, Cliente titular) {
 
 		this.numero = numero;
 		this.titular = titular;
-		saldo=0;
-		 
+		saldo = 0;
+
 	}
-	
-	
+
 	public String getNumero() {
 		return numero;
 	}
@@ -22,28 +20,27 @@ public class Cuenta {
 	public Cliente getTitular() {
 		return titular;
 	}
+
 	public void depositar(double montoDepositar) {
 		this.saldo += montoDepositar;
 	}
+
 	public boolean extraer(double monto) {
-		boolean resultado=false;
-		if(monto>= this.saldo) {
+		boolean resultado = false;
+		if (monto >= this.saldo) {
 			this.saldo -= monto;
-			resultado=true;
+			resultado = true;
 		}
 		return resultado;
-	
+
 	}
-	
-	
+
 	public double getSaldo() {
 		return saldo;
 	}
+
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
-	
-	
-	
-}
 
+}

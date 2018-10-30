@@ -6,12 +6,11 @@ public class CuentaCajaAhorro extends Cuenta {
 		super(numero, titular);
 	}
 
-	public static CuentaCajaAhorro instancia (String numero, Cliente titular) {
-		if ( (numero != null) && (titular !=null) ){
-			return new CuentaCajaAhorro(numero, titular);			
+	public static CuentaCajaAhorro instancia(String numero, Cliente titular) {
+		if ((numero != null) && (titular != null)) {
+			return new CuentaCajaAhorro(numero, titular);
 		}
 		return null;
-
 	}
 
 }
