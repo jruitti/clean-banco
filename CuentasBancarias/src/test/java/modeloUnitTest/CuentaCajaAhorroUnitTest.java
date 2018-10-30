@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import modelo.Cliente;
 import modelo.CuentaCajaAhorro;
 
-class CuentaCajaAhorroUnitTestTest {
+class CuentaCajaAhorroUnitTest {
 
 	@Test
 	public void intaciarCuentaCajaAhorro_CuentaCompleta_IntanciaCuentaCajaAhorro() {
@@ -22,14 +22,6 @@ class CuentaCajaAhorroUnitTestTest {
 	public void intaciarCuentaCajaAhorro_CuentaNoCompleta_IntanciaCuentaCajaAhorro() {
 		CuentaCajaAhorro cuentaCajaAhorro;
 		cuentaCajaAhorro = CuentaCajaAhorro.instancia("123456789", null);
-		assertNull(cuentaCajaAhorro);
-	}
-
-	@Test
-	public void intaciarCuentaCajaAhorro_CuentaSaldoNegativo_IntanciaCuentaCajaAhorro() {
-		CuentaCajaAhorro cuentaCajaAhorro;
-		Cliente clienteCuenta = Cliente.instancia(2, "Perez", "Pepe", "12345", "Santa Rosa 321");
-		cuentaCajaAhorro = CuentaCajaAhorro.instancia("123456789", clienteCuenta);
 		assertNull(cuentaCajaAhorro);
 	}
 
