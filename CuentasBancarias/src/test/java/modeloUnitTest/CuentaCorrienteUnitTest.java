@@ -32,7 +32,7 @@ public class CuentaCorrienteUnitTest {
 		laCuentaCorriente.depositar(600);
 		laCuentaCorriente.extraer(1600);
 		
-		assertEquals(-1000,laCuentaCorriente.getDescubierto(),2);
+		assertEquals(1000.0,laCuentaCorriente.getDescubierto(),2);
 	}
 	
 	
