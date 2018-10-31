@@ -44,6 +44,15 @@ public class CuentaCorrienteUnitTest {
 		assertEquals("Flores",laCuentaCorriente.getTitular().getApellido());
 		
 	}
+	@Test
+	public void modificarCuentaCorriente_CuentaCorrienteNoModificada() {
+		Cliente elCliente = Cliente.instancia(1, "Ortiz", "Andres", "20-37415482-7", "Castro y Bazan 124");
+		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("001", elCliente);
+		Cliente elClienteNuevo = Cliente.instancia(2, "Flores", "Ivan", "19-324453424-2", "Nolasco");
+		laCuentaCorriente.modificarCuentaCorriente("002",elClienteNuevo);
+		assertEquals("Ortiz",laCuentaCorriente.getTitular().getApellido());
+		
+	}
 	
 	
 
