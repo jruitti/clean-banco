@@ -18,19 +18,19 @@ public class CuentaCorriente extends Cuenta {
 	}
 
 	public boolean extraer(double monto) {
-
-		if ((super.getSaldo() + descubierto) >= monto) {
-			double resultado = super.getSaldo() - monto;
-			super.setSaldo(resultado);
-			return true;
-		} else {
-			if ((super.getSaldo() < monto) || ((super.getSaldo() + descubierto) >= monto)) {
-				descubierto = super.getSaldo() - monto;
-				super.setSaldo(0);
-				return true;
-
-			}
+	double auxiliar = monto - (super.getSaldo());
+	
+	if(auxiliar > 0 && (descubierto + auxiliar) <= 1000) {
+		monto -= super.getSaldo();
+		super.setSaldo(0.0);
+		descubierto += monto;
+		return true;
+	}else {
+		if(auxiliar < 0) {
+			return super.extraer(monto);
+			
 		}
+	}
 		return false;
 
 	}

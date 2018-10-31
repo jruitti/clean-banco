@@ -13,7 +13,7 @@ public class Cuenta {
 
 		this.numero = numero;
 		this.titular = titular;
-		saldo=0;
+		this.saldo=0;
 		 
 	}
 	
