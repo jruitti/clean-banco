@@ -16,7 +16,7 @@ public class CrearCuentaCajaDeAhorroEspecialUseCase {
 		if (elRepositorio.consultarCuentaCajaDeAhorroEspecial(nuevaCuentaCajaDeAhorroEspecial) ) {
 			return false;
 		}
-		CuentaCajaDeAhorroEspecial cuentaAhorroEspecialNuevo = new CuentaCajaDeAhorroEspecial(nuevaCuentaCajaDeAhorroEspecial.getNumero(), nuevaCuentaCajaDeAhorroEspecial.getTitular());
+		CuentaCajaDeAhorroEspecial cuentaAhorroEspecialNuevo = CuentaCajaDeAhorroEspecial.instancia(nuevaCuentaCajaDeAhorroEspecial.getNumero(), nuevaCuentaCajaDeAhorroEspecial.getTitular());
 		return elRepositorio.crearCuentaCajaDeAhorroEspecial(cuentaAhorroEspecialNuevo);
 	}
 
