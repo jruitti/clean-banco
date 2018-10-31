@@ -67,7 +67,7 @@ class RepositorioCuentaCorriente implements ICuentaCorrienteRepositorio{
 	}
 
 	@Override
-	public boolean consultarCuentaCorriente(CuentaCorriente pCuentaCorriente) {
+	public boolean existeCuentaCorriente(CuentaCorriente pCuentaCorriente) {
 
 		return existeCuenta;
 	}
