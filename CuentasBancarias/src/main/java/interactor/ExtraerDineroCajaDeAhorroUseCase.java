@@ -1,12 +1,12 @@
 package interactor;
 
 import modelo.CuentaCajaAhorro;
-import repositorio.ICuentaCajaAhorroRepositorio;
+import repositorio.ICuentaCajaDeAhorroRepositorio;
 
 public class ExtraerDineroCajaDeAhorroUseCase {
-	private ICuentaCajaAhorroRepositorio elRepositorio;
+	private ICuentaCajaDeAhorroRepositorio elRepositorio;
 
-	public ExtraerDineroCajaDeAhorroUseCase(ICuentaCajaAhorroRepositorio elRepositorio) {
+	public ExtraerDineroCajaDeAhorroUseCase(ICuentaCajaDeAhorroRepositorio elRepositorio) {
 		super();
 		this.elRepositorio = elRepositorio;
 	}

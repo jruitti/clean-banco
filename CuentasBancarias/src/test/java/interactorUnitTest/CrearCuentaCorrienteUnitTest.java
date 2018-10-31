@@ -22,7 +22,7 @@ class CrearCuentaCorrienteUnitTest {
 		
 		CrearCuentaCorrienteUseCase crearCuentaCorriente = new CrearCuentaCorrienteUseCase(elRepositorio);
 		
-		boolean resultado = crearCuentaCorriente.CrearCuentaCajaCorriente(laCuentaCorriente);
+		boolean resultado = crearCuentaCorriente.CrearCuentaCorriente(laCuentaCorriente);
 		assertTrue(resultado);
 		
 	}
@@ -37,7 +37,7 @@ class CrearCuentaCorrienteUnitTest {
 		
 		CrearCuentaCorrienteUseCase crearCuentaCorriente = new CrearCuentaCorrienteUseCase(elRepositorio);
 		
-		boolean resultado = crearCuentaCorriente.CrearCuentaCajaCorriente(laCuentaCorriente);
+		boolean resultado = crearCuentaCorriente.CrearCuentaCorriente(laCuentaCorriente);
 		assertFalse(resultado);
 		
 	}
