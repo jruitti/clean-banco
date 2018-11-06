@@ -41,35 +41,45 @@ class CrearCuentaCorrienteUnitTest {
 		assertFalse(resultado);
 		
 	}
-
-}
-
-class RepositorioCuentaCorriente implements ICuentaCorrienteRepositorio{
 	
-	public boolean resultado;
-	public boolean existeCuenta;
 	
-	@Override
-	public boolean crearCuentaCorriente(CuentaCorriente cuentaCorrienteNuevo) {
-		return resultado;
-	}
-
-	@Override
-	public boolean guardarCuentaCorriente(CuentaCorriente pCuentaCorriente) {
+	
+	class RepositorioCuentaCorriente implements ICuentaCorrienteRepositorio{
 		
-		return false;
-	}
+		public boolean resultado;
+		public boolean existeCuenta;
+		
+		@Override
+		public boolean crearCuentaCorriente(CuentaCorriente cuentaCorrienteNuevo) {
+			return resultado;
+		}
 
-	@Override
-	public boolean modificarCuentaCorriente(CuentaCorriente pCuentaCorriente) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+		@Override
+		public boolean guardarCuentaCorriente(CuentaCorriente pCuentaCorriente) {
+			
+			return false;
+		}
 
-	@Override
-	public boolean existeCuentaCorriente(CuentaCorriente pCuentaCorriente) {
+		@Override
+		public boolean modificarCuentaCorriente(CuentaCorriente pCuentaCorriente) {
+			// TODO Auto-generated method stub
+			return false;
+		}
 
-		return existeCuenta;
+		@Override
+		public boolean existeCuentaCorriente(CuentaCorriente pCuentaCorriente) {
+
+			return existeCuenta;
+		}
+
+		@Override
+		public boolean existeCuentaCorrientePorNumero(String nCuentaCorriente) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
 	}
 
 }
+
+
