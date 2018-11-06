@@ -30,7 +30,7 @@ public class Cuenta {
 	}
 	public boolean extraer(double monto) {
 		boolean resultado=false;
-		if(monto>= this.saldo) {
+		if(monto<= this.saldo) {
 			this.saldo -= monto;
 			resultado=true;
 		}

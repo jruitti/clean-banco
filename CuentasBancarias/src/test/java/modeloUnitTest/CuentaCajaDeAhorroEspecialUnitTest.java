@@ -3,6 +3,8 @@ package modeloUnitTest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.Test;
 import modelo.Cliente;
 import modelo.CuentaCajaDeAhorroEspecial;
@@ -10,7 +12,7 @@ class CuentaCajaDeAhorroEspecialUnitTest {
 
 
 	@Test
-	public void intaciarCuentaCajaDeAhorroEspecial_CuentaCompleta_IntanciaCuentaCajaDeAhorroEspecial() {
+	public void instanciarCuentaCajaDeAhorroEspecial_CuentaCompleta_InstanciaCuentaCajaDeAhorroEspecial() {
 		CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial;
 		Cliente clienteCuenta = Cliente.instancia(2, "Perez", "Pepe", "12345", "Santa Rosa 321");
 		cuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("123456789", clienteCuenta);
@@ -18,14 +20,14 @@ class CuentaCajaDeAhorroEspecialUnitTest {
 	}
 
 	@Test
-	public void intaciarCuentaCajaDeAhorroEspecial_CuentaNoCompleta_IntanciaCuentaCajaDeAhorroEspecial() {
+	public void instanciarCuentaCajaDeAhorroEspecial_CuentaNoCompleta_NoInstanciaCuentaCajaDeAhorroEspecial() {
 		CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial;
 		cuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("123456789", null);
 		assertNull(cuentaCajaDeAhorroEspecial);
 	}
 
 	@Test
-	public void intaciarCuentaCajaAhorro_CuentaSinNuemero_IntanciaCuentaCajaDeAhorroEspecial() {
+	public void instanciarCuentaCajaAhorro_CuentaSinNumero_NoInstanciaCuentaCajaDeAhorroEspecial() {
 		CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial;
 		Cliente clienteCuenta = Cliente.instancia(2, "Perez", "Pepe", "12345", "Santa Rosa 321");
 		cuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia(null, clienteCuenta);
@@ -33,19 +35,36 @@ class CuentaCajaDeAhorroEspecialUnitTest {
 	}
 
 	@Test
-	public void intaciarCuentaCajaDeAhorroEspecial_CuentaSinDatos_IntanciaCuentaCajaDeAhorroEspecial() {
+	public void instanciarCuentaCajaDeAhorroEspecial_CuentaSinDatos_NoInstanciaCuentaCajaDeAhorroEspecial() {
 		CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia(null, null);
 		assertNull(cuentaCajaDeAhorroEspecial);
 	}
-
-	public void ExtraerCajaDeAhorroEspecialUnaSolaVezAlMes() {
+	@Test
+	public void ExtraerCajaDeAhorroEspecialUnaSolaVezAlMes_NoExtrajoEnElMes_PermiteExtraer() {
+		LocalDate ultimaExtraccion = LocalDate.of(2018, 10, 12);
+		LocalDate fechaActual = LocalDate.of(2018, 11, 10);
 		CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial;
 		Cliente clienteCuenta = Cliente.instancia(2, "Perez", "Pepe", "12345", "Santa Rosa 321");
 		cuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("123456789", clienteCuenta);
+		cuentaCajaDeAhorroEspecial.actualizarFechaUltima(ultimaExtraccion);
 		cuentaCajaDeAhorroEspecial.depositar(1000);
-		cuentaCajaDeAhorroEspecial.extraer(500);
-		cuentaCajaDeAhorroEspecial.extraer(500);
+		cuentaCajaDeAhorroEspecial.extraer(500,fechaActual);
+		
 		assertEquals(500.0,cuentaCajaDeAhorroEspecial.getSaldo(),2);
 		
 	}
+	@Test
+	public void ExtraerCajaDeAhorroEspecialUnaSolaVezAlMes_ExtrajoEnElMes_NoPermiteExtraer() {
+		LocalDate ultimaExtraccion = LocalDate.of(2018, 10, 12);
+		LocalDate fechaActual = LocalDate.of(2018, 10, 14);
+		CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial;
+		Cliente clienteCuenta = Cliente.instancia(2, "Perez", "Pepe", "12345", "Santa Rosa 321");
+		cuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("123456789", clienteCuenta);
+		cuentaCajaDeAhorroEspecial.actualizarFechaUltima(ultimaExtraccion);
+		cuentaCajaDeAhorroEspecial.depositar(1000);
+		cuentaCajaDeAhorroEspecial.extraer(500,fechaActual);
+		
+		assertEquals(1000.0,cuentaCajaDeAhorroEspecial.getSaldo(),2);
+	}
+	
 }

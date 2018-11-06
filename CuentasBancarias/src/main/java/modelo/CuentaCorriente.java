@@ -18,12 +18,11 @@ public class CuentaCorriente extends Cuenta {
 	}
 
 	public boolean extraer(double monto) {
-	double auxiliar = monto - (super.getSaldo());
+	double auxiliar =  (super.getSaldo()) - monto;
 	
-	if(auxiliar > 0 && (descubierto + auxiliar) <= 1000) {
-		monto -= super.getSaldo();
-		super.setSaldo(0.0);
-		descubierto += monto;
+	
+	if(auxiliar >= -1000 ) {
+		super.setSaldo(auxiliar);
 		return true;
 	}else {
 		if(auxiliar < 0) {

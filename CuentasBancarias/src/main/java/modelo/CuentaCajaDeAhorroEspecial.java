@@ -18,14 +18,22 @@ public class CuentaCajaDeAhorroEspecial extends Cuenta {
 		}
 	}
 	
-	public boolean extraer(double monto) {
-		LocalDate fechaActual = LocalDate.now();
-
-		if (fechaActual.getYear() != ultimoExtraccion.getYear()
-				|| fechaActual.getMonth() != ultimoExtraccion.getMonth()) {
+	public boolean extraer(double monto, LocalDate fecha) {
+		//LocalDate fechaActual = LocalDate.now();
+		
+		if (fecha.getYear() != ultimoExtraccion.getYear()
+				|| fecha.getMonth() != ultimoExtraccion.getMonth()) {
+			
+			actualizarFechaUltima(fecha);
 			return (super.extraer(monto));
+		
 		}
 		return false;
 	}
+	
+	public void actualizarFechaUltima(LocalDate fecha) {
+		this.ultimoExtraccion = fecha;
+	}
+	
 
 }
