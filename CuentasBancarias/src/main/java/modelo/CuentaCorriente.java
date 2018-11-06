@@ -39,4 +39,12 @@ public class CuentaCorriente extends Cuenta {
 		return descubierto;
 	}
 
+	
+	public  void modificarCuentaCorriente(String numeroCuenta, Cliente elClienteNuevo) {
+		if(super.getNumero() == numeroCuenta)
+			super.setTitular(elClienteNuevo);
+			
+		
+	}
+
 }
