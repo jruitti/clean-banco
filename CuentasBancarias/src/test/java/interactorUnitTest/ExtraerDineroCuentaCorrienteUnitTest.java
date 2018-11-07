@@ -4,59 +4,61 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import interactor.CrearCuentaCorrienteUseCase;
+import interactor.ExtraerDineroCuentaCorriente;
 import modelo.Cliente;
 import modelo.CuentaCorriente;
 import repositorio.ICuentaCorrienteRepositorio;
 
-class CrearCuentaCorrienteUnitTest {
+class ExtraerDineroCuentaCorrienteUnitTest {
 	
 	@Test
-	public void crearCuentaCorriente_CuentaCorrienteNoExiste_CuentaCreada() {
+	public void extraerDineroCuentaCorriente_CuentaConSaldo_ExtraccionCompleta() {
 		RepositorioCuentaCorriente elRepositorio = new RepositorioCuentaCorriente();
-		elRepositorio.existeCuenta = false;
-		elRepositorio.resultado=true;
+		
+		elRepositorio.extraccion = true;
 		
 		Cliente elCliente = Cliente.instancia(1,"Perez","Juan","20-12345678-4","San Martin 100");
-		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("001", elCliente);
+		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("1000", elCliente);
 		
-		CrearCuentaCorrienteUseCase crearCuentaCorriente = new CrearCuentaCorrienteUseCase(elRepositorio);
+		ExtraerDineroCuentaCorriente extraerDineroCuentaCorriente = new ExtraerDineroCuentaCorriente(elRepositorio);
 		
-		boolean resultado = crearCuentaCorriente.CrearCuentaCorriente(laCuentaCorriente);
+		boolean resultado = extraerDineroCuentaCorriente.ExtraerDineroCuentaCorriente(laCuentaCorriente);
+		
 		assertTrue(resultado);
 		
 	}
 	
 	@Test
-	public void crearCuentaCorriente_CuentaCorrienteYaExiste_CuentaNoCreada() {
+	public void extraerDineroCuentaCorriente_CuentaSinSaldo_ExtraccionIncompleta() {
 		RepositorioCuentaCorriente elRepositorio = new RepositorioCuentaCorriente();
-		elRepositorio.existeCuenta= true;
+		
+		
 		
 		Cliente elCliente = Cliente.instancia(1,"Perez","Juan","20-12345678-4","San Martin 100");
-		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("001", elCliente);
+		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("1000", elCliente);
 		
-		CrearCuentaCorrienteUseCase crearCuentaCorriente = new CrearCuentaCorrienteUseCase(elRepositorio);
+		ExtraerDineroCuentaCorriente extraerDineroCuentaCorriente = new ExtraerDineroCuentaCorriente(elRepositorio);
 		
-		boolean resultado = crearCuentaCorriente.CrearCuentaCorriente(laCuentaCorriente);
+		boolean resultado = extraerDineroCuentaCorriente.ExtraerDineroCuentaCorriente(laCuentaCorriente);
+		
 		assertFalse(resultado);
 		
 	}
 	
 	
 	
+	
+	
+	
+	
 	class RepositorioCuentaCorriente implements ICuentaCorrienteRepositorio{
 		
-		public boolean resultado;
-		public boolean existeCuenta;
+		public boolean extraccion;
 		
-		@Override
-		public boolean crearCuentaCorriente(CuentaCorriente cuentaCorrienteNuevo) {
-			return resultado;
-		}
 
 		@Override
 		public boolean guardarCuentaCorriente(CuentaCorriente pCuentaCorriente) {
-			
+			// TODO Auto-generated method stub
 			return false;
 		}
 
@@ -68,8 +70,8 @@ class CrearCuentaCorrienteUnitTest {
 
 		@Override
 		public boolean existeCuentaCorriente(CuentaCorriente pCuentaCorriente) {
-
-			return existeCuenta;
+			// TODO Auto-generated method stub
+			return false;
 		}
 
 		@Override
@@ -79,16 +81,19 @@ class CrearCuentaCorrienteUnitTest {
 		}
 
 		@Override
-		public boolean extraerDineroCuentaCorriente(float montoDinero) {
+		public boolean crearCuentaCorriente(CuentaCorriente cuentaCorrienteNuevo) {
 			// TODO Auto-generated method stub
 			return false;
 		}
 
-		
-		
+		@Override
+		public boolean extraerDineroCuentaCorriente(float montoDinero) {
+			// TODO Auto-generated method stub
+			return extraccion;
+		}
 
+		
+		
 	}
 
 }
-
-

@@ -8,5 +8,7 @@ public interface ICuentaCorrienteRepositorio {
 	public boolean existeCuentaCorriente(CuentaCorriente pCuentaCorriente);
 	public boolean existeCuentaCorrientePorNumero(String nCuentaCorriente);
 	boolean crearCuentaCorriente(CuentaCorriente cuentaCorrienteNuevo);
+	public boolean extraerDineroCuentaCorriente(float montoDinero);
+	
 
 }

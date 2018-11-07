@@ -81,6 +81,14 @@ class ModificarCuentaCorrienteUnitTest {
 				// TODO Auto-generated method stub
 				return existeNumero;
 			}
+
+			@Override
+			public boolean extraerDineroCuentaCorriente(float montoDinero) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			
 			
 		}
 	}
