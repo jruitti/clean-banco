@@ -13,7 +13,8 @@ class CrearCuentaCajaDeAhorroEspecialUnitTest {
 
 	@Test
 	void crearCuentaCajaDeAhorroEspecial_CuentaCajaDeAhorroEspecialNoExiste_CuentaCreado() {
-		ICuentaCajaDeAhorroEspecialRepositorio elRepositorioCuentaDeCajaAhorroEspecial = new RepositorioCuentaCajaDeAhorroEspecial();
+		RepositorioCuentaCajaDeAhorroEspecial elRepositorioCuentaDeCajaAhorroEspecial = new RepositorioCuentaCajaDeAhorroEspecial();
+		elRepositorioCuentaDeCajaAhorroEspecial.existeCuenta = false;
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
 		CuentaCajaDeAhorroEspecial laCuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("1", elCliente);
 		CrearCuentaCajaDeAhorroEspecialUseCase crearCrearCuentaCajaDeAhorroEspecialUseCase = new CrearCuentaCajaDeAhorroEspecialUseCase(elRepositorioCuentaDeCajaAhorroEspecial); 
@@ -25,7 +26,8 @@ class CrearCuentaCajaDeAhorroEspecialUnitTest {
 
 	@Test
 	void crearCuentaCajaDeAhorroEspecial_CuentaCajaDeAhorroEspecialExiste_CuentaNoCreado() {
-		ICuentaCajaDeAhorroEspecialRepositorio elRepositorioCuentaDeCajaAhorroEspecial = new RepositorioCuentaCajaDeAhorroEspecial();
+		RepositorioCuentaCajaDeAhorroEspecial elRepositorioCuentaDeCajaAhorroEspecial = new RepositorioCuentaCajaDeAhorroEspecial();
+		elRepositorioCuentaDeCajaAhorroEspecial.existeCuenta = true;
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
 		CuentaCajaDeAhorroEspecial laCuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("1", elCliente);
 		CrearCuentaCajaDeAhorroEspecialUseCase crearCrearCuentaCajaDeAhorroEspecialUseCase = new CrearCuentaCajaDeAhorroEspecialUseCase(
@@ -33,7 +35,7 @@ class CrearCuentaCajaDeAhorroEspecialUnitTest {
 
 		boolean resultado = crearCrearCuentaCajaDeAhorroEspecialUseCase
 				.CrearCuentaCajaDeAhorroEspecial(laCuentaCajaDeAhorroEspecial);
-		assertTrue(resultado);
+		assertFalse(resultado); 
 
 	}
 
@@ -42,6 +44,7 @@ class CrearCuentaCajaDeAhorroEspecialUnitTest {
 class RepositorioCuentaCajaDeAhorroEspecial implements ICuentaCajaDeAhorroEspecialRepositorio {
 
 	public boolean resultado;
+	public boolean existeCuenta;
 
 	@Override
 	public boolean crearCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial) {
@@ -64,6 +67,6 @@ class RepositorioCuentaCajaDeAhorroEspecial implements ICuentaCajaDeAhorroEspeci
 	@Override
 	public boolean consultarCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial) {
 		// TODO Ap�ndice de m�todo generado autom�ticamente
-		return false;
+		return existeCuenta;
 	}
 }
