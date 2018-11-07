@@ -9,6 +9,6 @@ public interface ICuentaCajaDeAhorroEspecialRepositorio {
 	public boolean consultarCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial);
 	public boolean modificarCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial);
 	public boolean guardarCajaAhorroEspecial(CuentaCajaDeAhorroEspecial nuevaCuenta);
-	
-	
+	public boolean ExtraerDineroCajaAhorroEspecial(float dinero);
+	public boolean consultarExtraccionMesEnCurso(CuentaCajaDeAhorroEspecial laCuenta);
 }
