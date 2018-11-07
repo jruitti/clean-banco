@@ -26,14 +26,24 @@ public class CuentaCorrienteUnitTest {
 	}
 	
 	@Test
-	public void CuentaCorriente_PermiteDescubierto() {
+	public void Extraer_MontoDescubiertoDisponible_PermiteExtraer() {
 		Cliente	elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678","San Martin 100");
 		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("001", elCliente);
 		laCuentaCorriente.depositar(600);
 		laCuentaCorriente.extraer(1600);
 		
-		assertEquals(1000.0,laCuentaCorriente.getDescubierto(),2);
+		assertEquals(-1000.0,laCuentaCorriente.getSaldo(),2);
 	}
+	@Test
+	public void Extraer_MontoDescubiertoDisponible_NoPermiteExtraer() {
+		Cliente	elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678","San Martin 100");
+		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("001", elCliente);
+		laCuentaCorriente.depositar(600);
+		laCuentaCorriente.extraer(1601);
+		
+		assertEquals(600.0,laCuentaCorriente.getSaldo(),2);		
+	}
+
 	
 	@Test
 	public void modificarCuentaCorriente_CuentaCorrienteModificada() {
