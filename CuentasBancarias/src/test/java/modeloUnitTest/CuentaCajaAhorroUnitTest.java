@@ -39,7 +39,7 @@ class CuentaCajaAhorroUnitTest {
 		CuentaCajaAhorro newCuentaCajaAhorro = CuentaCajaAhorro.instancia(null, null);
 		assertNull(newCuentaCajaAhorro);
 	}
-	
+
 	@Test
 	public void intanciaExtracionCajaAhorro_extracionParcialCorrecta() {
 		CuentaCajaAhorro cuentaCajaAhorro;
@@ -47,8 +47,9 @@ class CuentaCajaAhorroUnitTest {
 		cuentaCajaAhorro = CuentaCajaAhorro.instancia("123456789", clienteCuenta);
 		cuentaCajaAhorro.depositar(2000);
 		cuentaCajaAhorro.extraer(1000);
-		assertEquals(1000.0,cuentaCajaAhorro.getSaldo(),2);	
+		assertEquals(1000.0, cuentaCajaAhorro.getSaldo(), 2);
 	}
+
 	@Test
 	public void intanciaExtracionCajaAhorro_extracionTotalCorrecta() {
 		CuentaCajaAhorro cuentaCajaAhorro;
@@ -56,16 +57,18 @@ class CuentaCajaAhorroUnitTest {
 		cuentaCajaAhorro = CuentaCajaAhorro.instancia("123456789", clienteCuenta);
 		cuentaCajaAhorro.depositar(2000);
 		cuentaCajaAhorro.extraer(2000);
-		assertEquals(0.0,cuentaCajaAhorro.getSaldo(),2);	
+		assertEquals(0.0, cuentaCajaAhorro.getSaldo(), 2);
 	}
+
 	@Test
 	public void intanciaExtracionCajaAhorro_SinSaldoDisponibleCuentaNueva_devuelveCero() {
 		CuentaCajaAhorro cuentaCajaAhorro;
 		Cliente clienteCuenta = Cliente.instancia(2, "Perez", "Pepe", "12345", "Santa Rosa 321");
 		cuentaCajaAhorro = CuentaCajaAhorro.instancia("123456789", clienteCuenta);
 		cuentaCajaAhorro.extraer(2000);
-		assertEquals(0.0,cuentaCajaAhorro.getSaldo(),2);	
+		assertEquals(0.0, cuentaCajaAhorro.getSaldo(), 2);
 	}
+
 	@Test
 	public void intanciaExtracionCajaAhorro_SaldoInsuficiente_devuelveSaldo() {
 		CuentaCajaAhorro cuentaCajaAhorro;
@@ -73,9 +76,23 @@ class CuentaCajaAhorroUnitTest {
 		cuentaCajaAhorro = CuentaCajaAhorro.instancia("123456789", clienteCuenta);
 		cuentaCajaAhorro.depositar(1000);
 		cuentaCajaAhorro.extraer(2000);
-		assertEquals(1000.0,cuentaCajaAhorro.getSaldo(),2);	
+		assertEquals(1000.0, cuentaCajaAhorro.getSaldo(), 2);
 	}
-	
-	
+
+	@Test
+	public void modificarCuentaCajaAhorro_CuentaCompleta_IntanciaCuentaCajaAhorro() {
+		Cliente clienteCuenta = Cliente.instancia(2, "Perez", "Pepe", "12345", "Santa Rosa 321");
+		Cliente clienteNuevo = Cliente.instancia(3, "Perez", "Ramon", "1234", "Santa Lucia 189");
+		String numeroCuil = "12344";
+		CuentaCajaAhorro cuentaModificar = CuentaCajaAhorro.instancia("12344", clienteCuenta);
+		cuentaModificar.modificarCuentaCajaAhorro(cuentaModificar, clienteNuevo, numeroCuil);
+
+		assertEquals(
+				"12344" + clienteNuevo.getIdCliente() + clienteNuevo.getApellido() + clienteNuevo.getNombre()
+						+ clienteNuevo.getCuil() + clienteNuevo.getDireccion(),
+				cuentaModificar.getNumero() + cuentaModificar.getTitular().getIdCliente()
+						+ cuentaModificar.getTitular().getApellido() + cuentaModificar.getTitular().getNombre()
+						+ cuentaModificar.getTitular().getCuil() + cuentaModificar.getTitular().getDireccion());
+	}
 
 }
