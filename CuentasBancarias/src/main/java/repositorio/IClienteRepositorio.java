@@ -7,4 +7,6 @@ public interface IClienteRepositorio {
 	public boolean existeCliente(Cliente persCliente);
 	public boolean modificarCliente(Cliente persCliente);
 	public boolean consultarCliente(Cliente persCliente);
+	public boolean existeClientePorId(Integer idCliente);
+
 }

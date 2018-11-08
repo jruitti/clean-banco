@@ -1,5 +1,6 @@
 package modeloUnitTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
@@ -28,8 +29,23 @@ public class ClienteUnitTest {
 		elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678",null);
 		assertNotNull(elCliente);  
 	}
-	 
-	
+	@Test
+	public void modificarCliente_ModificarNombre_clienteSeModificaSinError() {
+		Cliente elCliente;
+		String ApellidoNuevo="Soria";
+		Integer idComprobacion=1;
+		elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678",null);
+		elCliente.modicarCliente(idComprobacion,ApellidoNuevo);
+		assertEquals(ApellidoNuevo, elCliente.getApellido());;  
+	}
+	public void modificarCliente_ModificarPorId_IdNoExisteClienteSeModifica() {
+		Cliente elCliente;
+		String ApellidoNuevo="Soria";
+		Integer idComprobacion=1;
+		elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678",null);
+		elCliente.modicarCliente(idComprobacion,ApellidoNuevo);
+		assertEquals(ApellidoNuevo, elCliente.getApellido());;  
+	}
 
 
 }
