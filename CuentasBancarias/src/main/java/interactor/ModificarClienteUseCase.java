@@ -11,8 +11,12 @@ public class ModificarClienteUseCase {
 	}
 
 	public boolean modificarCliente(Cliente personaCliente) {
-		Cliente clienteModificado = Cliente.instancia(personaCliente.getIdCliente(), personaCliente.getApellido(),
-				personaCliente.getNombre(), personaCliente.getCuil(), personaCliente.getDireccion());
-		return elRepositorio.modificarCliente(clienteModificado);
+		if (!elRepositorio.existeClientePorId(personaCliente.getIdCliente())) {
+			return elRepositorio.modificarCliente(personaCliente);
+		}
+		return true;
 	}
+	
+	
+	
 }

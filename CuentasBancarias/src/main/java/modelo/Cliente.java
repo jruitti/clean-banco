@@ -43,4 +43,31 @@ public class Cliente {
 	public String getDireccion() {
 		return direccion;
 	}
+
+	public String getcUIL() {
+		return cUIL;
+	}
+
+	public void setcUIL(String cUIL) {
+		this.cUIL = cUIL;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public void modicarCliente(Integer idComprobacion, String apellidoNuevo) {
+		if(getIdCliente()==idComprobacion)
+			setApellido(apellidoNuevo);
+			
+	}
+
 }

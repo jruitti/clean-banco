@@ -69,4 +69,16 @@ class RepositorioCuentaCajaDeAhorroEspecial implements ICuentaCajaDeAhorroEspeci
 		// TODO Ap�ndice de m�todo generado autom�ticamente
 		return existeCuenta;
 	}
+
+	@Override
+	public boolean ExtraerDineroCajaAhorroEspecial(float dinero) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean consultarExtraccionMesEnCurso(CuentaCajaDeAhorroEspecial laCuenta) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

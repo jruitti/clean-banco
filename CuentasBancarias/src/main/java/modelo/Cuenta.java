@@ -45,6 +45,8 @@ public class Cuenta {
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
+
+
 	
 	public void setTitular(Cliente nuevoTitular) {
 		this.titular = nuevoTitular;

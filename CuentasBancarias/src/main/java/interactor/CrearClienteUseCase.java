@@ -12,8 +12,9 @@ public class CrearClienteUseCase {
 	}
 
 	public boolean crearCliente(Cliente elCliente) {
-		Cliente nuevoCliente = Cliente.instancia(elCliente.getIdCliente(), elCliente.getApellido(),
-				elCliente.getNombre(), elCliente.getCuil(), elCliente.getDireccion());
-		return elRepositorio.guardarCliente(nuevoCliente);
+		if (!elRepositorio.existeCliente(elCliente)) {
+			return elRepositorio.guardarCliente(elCliente);
+		}
+		return false;
 	}
 }
