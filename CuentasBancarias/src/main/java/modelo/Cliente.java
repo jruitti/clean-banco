@@ -69,5 +69,13 @@ public class Cliente {
 			setApellido(apellidoNuevo);
 			
 	}
+	
+	public boolean consultarCliente(Cliente cuilConsultado) {
+		if(getCuil()==cuilConsultado.getCuil()) {
+			return true;
+		}
+		return false;
+		
+	}
 
 }
