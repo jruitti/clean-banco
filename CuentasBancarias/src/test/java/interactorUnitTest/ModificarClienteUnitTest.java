@@ -61,15 +61,15 @@ public class ModificarClienteUnitTest {
 		}
 
 		@Override
-		public boolean consultarCliente(Cliente persCliente) {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
-		@Override
 		public boolean existeClientePorId(Integer idCliente) {
 			return existeId;
 		}
+
+		@Override
+		public boolean consultarClientePorCuil(String cuilClienteConsultado) {
+			return true;
+		}
+
 	}
 
 }

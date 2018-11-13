@@ -1,6 +1,7 @@
 package interactor;
 
 
+import modelo.Cliente;
 import modelo.CuentaCajaDeAhorroEspecial;
 import repositorio.ICuentaCajaDeAhorroEspecialRepositorio;
 
@@ -12,9 +13,12 @@ public class ModificarCuentaCajaDeAhorroEspecial {
 		this.elRepositorio = elRepositorio;
 	}
 
-	public boolean crearCuentaCajaAhorroEspecial(CuentaCajaDeAhorroEspecial cuenta1) {
-		CuentaCajaDeAhorroEspecial nuevaCuenta= CuentaCajaDeAhorroEspecial.instancia(cuenta1.getNumero(),cuenta1.getTitular());
-		//Cliente nuevoCliente=Cliente.instancia(elCliente.getIdCliente(), elCliente.getApellido(), elCliente.getNombre(), elCliente.getCuil(), elCliente.getDireccion());
-		return elRepositorio.guardarCajaAhorroEspecial(nuevaCuenta);	
+	public boolean modificarCuentaCajaAhorroEspecial(CuentaCajaDeAhorroEspecial cuentaModificar, Cliente nuevoTitular) {
+		if(!elRepositorio.consultarCuentaCajaDeAhorroEspecial(cuentaModificar)) {
+			CuentaCajaDeAhorroEspecial nuevaCuenta = CuentaCajaDeAhorroEspecial.instancia(cuentaModificar.getNumero(), nuevoTitular);
+			return elRepositorio.modificarCuentaCajaDeAhorroEspecial(nuevaCuenta);
+		}
+		return false;
+		
 	}
 }

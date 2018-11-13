@@ -70,11 +70,11 @@ public class Cliente {
 			
 	}
 	
-	public boolean consultarCliente(Cliente cuilConsultado) {
-		if(getCuil()==cuilConsultado.getCuil()) {
-			return true;
+	public String consultarCliente(String cuilConsultado) {
+		if(getCuil()==cuilConsultado) {
+			return getCuil();
 		}
-		return false;
+		return null;
 		
 	}
 
