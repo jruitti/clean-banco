@@ -17,7 +17,6 @@ class CrearCuentaCajaAhorroUnitTest {
 		Cliente elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678-4","San Martin 100");
 		CuentaCajaAhorro laCuentaCajaAhorro = CuentaCajaAhorro.instancia("1", elCliente);
 		CrearCuentaCajaAhorroUseCase crearCrearCuentaCajaAhorroUseCase = new CrearCuentaCajaAhorroUseCase(elRepositorioCuentaCajaAhorro); 
-		
 		boolean resultado = crearCrearCuentaCajaAhorroUseCase.CrearCuentaCajaAhorro(laCuentaCajaAhorro);
 		assertTrue(resultado);
 
@@ -27,6 +26,7 @@ class CrearCuentaCajaAhorroUnitTest {
 class RepositorioCuentaCajaDeAhorro implements ICuentaCajaAhorroRepositorio{
 
 	public boolean resultado;
+	public boolean extraccion;
 	
 	@Override
 	public boolean crearCuentaCajaDeAhorro(CuentaCajaAhorro persCuentaCajaDeAhorro) {
@@ -38,6 +38,12 @@ class RepositorioCuentaCajaDeAhorro implements ICuentaCajaAhorroRepositorio{
 	public boolean modificarCuentaCajaDeAhorro(CuentaCajaAhorro persCuentaCajaDeAhorro) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public boolean ExtraerDineroCajaAhorro(CuentaCajaAhorro persCuentaCajaDeAhorro) {
+		// TODO Auto-generated method stub
+		return extraccion;
 	}
 	
 	

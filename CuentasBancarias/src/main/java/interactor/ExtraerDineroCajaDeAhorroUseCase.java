@@ -11,8 +11,10 @@ public class ExtraerDineroCajaDeAhorroUseCase {
 		this.elRepositorio = elRepositorio;
 	}
 
-	public boolean extraerDineroCuentaCajaDeAhorro(CuentaCajaAhorro cuentaAhorro, Float montoDinero) {
-		return cuentaAhorro.extraer(montoDinero);
+	public boolean ExtraerDineroCuentaCajaDeAhorro(CuentaCajaAhorro laCuenta, double monto) {
+		boolean resultado = laCuenta.extraer(monto);
+		
+		return resultado;
 	}
 
 }

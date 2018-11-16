@@ -26,13 +26,19 @@ public class Cuenta {
 		return titular;
 	}
 	public void depositar(double montoDepositar) {
-		this.saldo += montoDepositar;
+		if(montoDepositar > 0) {
+			listaMovimiento.add(new Deposito(montoDepositar));
+			this.saldo += montoDepositar;
+		}
+		
 	}
+	/*el metodo depositar deberia devolver un boolean, que al tener una condicion, puede que no se cumpla*/
 	public boolean extraer(double monto) {
 		boolean resultado=false;
-		if(monto<= this.saldo) {
+		if( (monto<= this.saldo) ){
 			this.saldo -= monto;
 			resultado=true;
+			listaMovimiento.add(new Extraccion(monto));
 		}
 		return resultado;
 	
