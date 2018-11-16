@@ -8,7 +8,8 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
 import modelo.Cliente;
 import modelo.CuentaCajaDeAhorroEspecial;
-class CuentaCajaDeAhorroEspecialUnitTest {
+
+public class CuentaCajaDeAhorroEspecialUnitTest {
 
 
 	@Test
@@ -65,6 +66,28 @@ class CuentaCajaDeAhorroEspecialUnitTest {
 		cuentaCajaDeAhorroEspecial.extraer(500,fechaActual);
 		
 		assertEquals(1000.0,cuentaCajaDeAhorroEspecial.getSaldo(),2);
+	}
+	
+	@Test
+	public void ModificarCuentaCajaDeAhorroEspecial_CajaDeAhorroEspecialModificada() {
+		Cliente nuevoCliente= Cliente.instancia(4, "Alive", "Luciano", "20-35064541-2", "B° Las Torres");
+		Cliente clienteModificar = Cliente.instancia(5, "Casiva", "Laura", "27-355541350-6", "Paiman Sur");
+		
+		CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("15428796", nuevoCliente);
+		cuentaCajaDeAhorroEspecial.modificarCajaAhorroEspecial(clienteModificar, "15428796");
+		
+		assertEquals(clienteModificar.getApellido(),cuentaCajaDeAhorroEspecial.getTitular().getApellido());
+	}
+	
+	@Test
+	public void ModificarCuentaCajaDeAhorroEspecial_CajaDeAhorroEspecialNoModificada() {
+		Cliente nuevoCliente= Cliente.instancia(4, "Alive", "Luciano", "20-35064541-2", "B° Las Torres");
+		Cliente clienteModificar = Cliente.instancia(5, "Casiva", "Laura", "27-355541350-6", "Paiman Sur");
+		
+		CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("15428796", nuevoCliente);
+		cuentaCajaDeAhorroEspecial.modificarCajaAhorroEspecial(clienteModificar, "1542879");
+		
+		assertEquals(nuevoCliente.getApellido(),cuentaCajaDeAhorroEspecial.getTitular().getApellido());
 	}
 	
 }

@@ -55,11 +55,6 @@ class RepositorioCliente implements IClienteRepositorio {
 	}
 
 	@Override
-	public boolean consultarCliente(Cliente persCliente) {
-		return false;
-	}
-
-	@Override
 	public boolean existeCliente(Cliente persCliente) {
 		return existeCliente;
 	}
@@ -70,4 +65,8 @@ class RepositorioCliente implements IClienteRepositorio {
 		return existeId;
 	}
 
+	@Override
+	public boolean consultarClientePorCuil(String cuilClienteConsultado) {
+		return false;
+	}
 }

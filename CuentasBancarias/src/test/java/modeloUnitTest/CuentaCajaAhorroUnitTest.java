@@ -12,7 +12,7 @@ import modelo.CuentaCajaAhorro;
 class CuentaCajaAhorroUnitTest {
 
 	@Test
-	public void intaciarCuentaCajaAhorro_CuentaCompleta_IntanciaCuentaCajaAhorro() {
+	public void instanciarCuentaCajaAhorro_CuentaCompleta_IntanciaCorrecta() {
 		CuentaCajaAhorro cuentaCajaAhorro;
 		Cliente clienteCuenta = Cliente.instancia(2, "Perez", "Pepe", "12345", "Santa Rosa 321");
 		cuentaCajaAhorro = CuentaCajaAhorro.instancia("123456789", clienteCuenta);
@@ -20,14 +20,14 @@ class CuentaCajaAhorroUnitTest {
 	}
 
 	@Test
-	public void intaciarCuentaCajaAhorro_CuentaNoCompleta_IntanciaCuentaCajaAhorro() {
+	public void instanciarCuentaCajaAhorro_CuentaNoCompleta_IntanciaSinCliente() {
 		CuentaCajaAhorro cuentaCajaAhorro;
 		cuentaCajaAhorro = CuentaCajaAhorro.instancia("123456789", null);
 		assertNull(cuentaCajaAhorro);
 	}
 
 	@Test
-	public void intaciarCuentaCajaAhorro_CuentaSinNuemero_IntanciaCuentaCajaAhorro() {
+	public void instanciarCuentaCajaAhorro_CuentaSinNuemero_IntanciaIncorrecta() {
 		CuentaCajaAhorro cuentaCajaAhorro;
 		Cliente clienteCuenta = Cliente.instancia(2, "Perez", "Pepe", "12345", "Santa Rosa 321");
 		cuentaCajaAhorro = CuentaCajaAhorro.instancia(null, clienteCuenta);
@@ -35,7 +35,7 @@ class CuentaCajaAhorroUnitTest {
 	}
 
 	@Test
-	public void intaciarCuentaCajaAhorro_CuentaSinDatos_IntanciaCuentaCajaAhorro() {
+	public void instanciarCuentaCajaAhorro_CuentaSinDatos_IntanciaNoCreada() {
 		CuentaCajaAhorro newCuentaCajaAhorro = CuentaCajaAhorro.instancia(null, null);
 		assertNull(newCuentaCajaAhorro);
 	}
@@ -80,7 +80,7 @@ class CuentaCajaAhorroUnitTest {
 	}
 
 	@Test
-	public void modificarCuentaCajaAhorro_CuentaCompleta_IntanciaCuentaCajaAhorro() {
+	public void modificarCuentaCajaAhorro_CuentaCompleta_ModificacionCorrecta() {
 		Cliente clienteCuenta = Cliente.instancia(2, "Perez", "Pepe", "12345", "Santa Rosa 321");
 		Cliente clienteNuevo = Cliente.instancia(3, "Perez", "Ramon", "1234", "Santa Lucia 189");
 		String numeroCuil = "12344";

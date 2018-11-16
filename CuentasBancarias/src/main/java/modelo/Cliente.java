@@ -69,5 +69,13 @@ public class Cliente {
 			setApellido(apellidoNuevo);
 			
 	}
+	
+	public String consultarCliente(String cuilConsultado) {
+		if(getCuil()==cuilConsultado) {
+			return getCuil();
+		}
+		return null;
+		
+	}
 
 }
