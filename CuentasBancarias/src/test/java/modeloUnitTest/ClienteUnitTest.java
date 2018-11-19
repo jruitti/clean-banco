@@ -51,6 +51,7 @@ public class ClienteUnitTest {
 	@Test
 	public void consultarCliente_ClienteSiExiste() {
 		boolean consulta;
+		
 		Cliente elCliente;
 		Cliente elCliente2;
 		elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678","San Martin 100");
@@ -64,8 +65,10 @@ public class ClienteUnitTest {
 	@Test
 	public void consultarCliente_ClienteNoExiste() {
 		boolean consulta;
+		
 		Cliente elCliente;
 		Cliente elCliente2;
+		
 		elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678","San Martin 100");
 		elCliente2=Cliente.instancia(2,"Alive","Luciano","20-35064541-2","25 de Mayo");
 		consulta = elCliente.consultarCliente(elCliente2);

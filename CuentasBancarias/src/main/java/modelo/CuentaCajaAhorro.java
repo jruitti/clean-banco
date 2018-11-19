@@ -2,7 +2,7 @@ package modelo;
 
 public class CuentaCajaAhorro extends Cuenta {
 
-	public CuentaCajaAhorro(String numero, Cliente titular) {
+	private CuentaCajaAhorro(String numero, Cliente titular) {
 		super(numero, titular);
 	}
 

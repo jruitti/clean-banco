@@ -44,10 +44,6 @@ public class Cliente {
 		return direccion;
 	}
 
-	public String getcUIL() {
-		return cUIL;
-	}
-
 	public void setcUIL(String cUIL) {
 		this.cUIL = cUIL;
 	}
@@ -70,11 +66,12 @@ public class Cliente {
 			
 	}
 	
-	public String consultarCliente(String cuilConsultado) {
-		if(getCuil()==cuilConsultado) {
-			return getCuil();
+	public boolean consultarCliente(Cliente clienteCuil) {
+		if(getCuil()==clienteCuil.getCuil()) {
+			System.out.println(getCuil()+clienteCuil.getCuil());
+			return true;
 		}
-		return null;
+		return false;
 		
 	}
 
