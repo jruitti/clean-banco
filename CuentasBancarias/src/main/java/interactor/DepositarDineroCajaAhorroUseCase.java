@@ -13,6 +13,7 @@ public class DepositarDineroCajaAhorroUseCase {
 	
 	public boolean DepositarDineroCuentaCajaAhorro(CuentaCajaAhorro laCuenta, double monto) {
 		laCuenta.depositar(monto);
+		elRepositorio.guardarCambiosCuenta(laCuenta);
 		return true;
 	}
 	

@@ -45,6 +45,12 @@ class RepositorioCuentaCajaDeAhorro implements ICuentaCajaAhorroRepositorio{
 		// TODO Auto-generated method stub
 		return extraccion;
 	}
+
+	@Override
+	public boolean guardarCambiosCuenta(CuentaCajaAhorro laCuenta) {
+		// TODO Auto-generated method stub
+		return true;
+	}
 	
 	
 }
