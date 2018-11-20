@@ -21,7 +21,7 @@ class ModificarCuentaCajaAhorroUnitTest {
 		elRepositorio.resultado = true;
 
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
-		CuentaCajaAhorro cuentaCajaAhorro = CuentaCajaAhorro.instancia("1000", elCliente);
+		CuentaCajaAhorro cuentaCajaAhorro = CuentaCajaAhorro.instancia("1000", elCliente,1);
 
 		ModificarCuentaCajaAhorroUseCase modificarCuentaCorriente = new ModificarCuentaCajaAhorroUseCase(elRepositorio);
 
@@ -35,7 +35,7 @@ class ModificarCuentaCajaAhorroUnitTest {
 		elRepositorio.existeNumeroCuenta = true;
 
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
-		CuentaCajaAhorro cuentaCajaAhorro = CuentaCajaAhorro.instancia("1000", elCliente);
+		CuentaCajaAhorro cuentaCajaAhorro = CuentaCajaAhorro.instancia("1000", elCliente,1);
 
 		ModificarCuentaCajaAhorroUseCase modificarCuentaCorriente = new ModificarCuentaCajaAhorroUseCase(elRepositorio);
 
@@ -78,6 +78,13 @@ class ModificarCuentaCajaAhorroUnitTest {
 		@Override
 		public boolean existeNumeroCuentaCajaAhorro(String numeroCuenta) {
 			return existeNumeroCuenta;
+		}
+
+		@Override
+		public CuentaCajaAhorro devuelveCuentaPorId(Integer idCuenta) {
+			Cliente clienteDb = Cliente.instancia(1, "perez", "pepe", "1234", "San Rafael");
+			CuentaCajaAhorro cuentaCajaAhorroDb= CuentaCajaAhorro.instancia("1000", clienteDb, 1);
+			return cuentaCajaAhorroDb;
 		}
 	}
 }

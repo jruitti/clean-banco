@@ -7,16 +7,17 @@ public class Cuenta {
 	private String numero;
 	private Cliente titular;
 	private double saldo;
+	private Integer idCuenta;
 	private LinkedList<Movimiento> listaMovimiento= new LinkedList<Movimiento>();
 	
-	protected Cuenta(String numero, Cliente titular) {
+	protected Cuenta(String numero, Cliente titular, Integer idCuenta) {
 
 		this.numero = numero;
 		this.titular = titular;
+		this.idCuenta=idCuenta; 
 		this.saldo=0;
-		 
+		
 	}
-	
 	
 	public String getNumero() {
 		return numero;
@@ -25,6 +26,17 @@ public class Cuenta {
 	public Cliente getTitular() {
 		return titular;
 	}
+	
+	public Integer getIdCuenta() {
+		return idCuenta;
+	}
+
+
+	public LinkedList<Movimiento> getListaMovimiento() {
+		return listaMovimiento;
+	}
+
+
 	public void depositar(double montoDepositar) {
 		if(montoDepositar > 0) {
 			listaMovimiento.add(new Deposito(montoDepositar));
@@ -60,6 +72,19 @@ public class Cuenta {
 	public void setNumeroCuenta(String numeroCuenta) {
 		this.numero = numeroCuenta;
 	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public void setIdCuenta(Integer idCuenta) {
+		this.idCuenta = idCuenta;
+	}
+
+	public void setListaMovimiento(LinkedList<Movimiento> listaMovimiento) {
+		this.listaMovimiento = listaMovimiento;
+	}
+	
 	
 }
 

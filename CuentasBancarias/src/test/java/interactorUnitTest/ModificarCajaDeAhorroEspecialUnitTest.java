@@ -20,7 +20,7 @@ public class ModificarCajaDeAhorroEspecialUnitTest {
 		String numeroModificar = "15428541";
 		Cliente nuevoCliente = Cliente.instancia(4, "Alive", "Luciano", "20-35064541-2", "B° Las Torres");
 		CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("15428796",
-				nuevoCliente);
+				nuevoCliente,1);
 
 		ModificarCuentaCajaDeAhorroEspecial modificarCajaDeAhorroEspecialUseCase = new ModificarCuentaCajaDeAhorroEspecial(
 				elRepositorio);
@@ -38,7 +38,7 @@ public class ModificarCajaDeAhorroEspecialUnitTest {
 		String numeroModificar = "15428541";
 		Cliente nuevoCliente = Cliente.instancia(4, "Alive", "Luciano", "20-35064541-2", "B° Las Torres");
 		CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("15428796",
-				nuevoCliente);
+				nuevoCliente,1);
 
 		ModificarCuentaCajaDeAhorroEspecial modificarCajaDeAhorroEspecialUseCase = new ModificarCuentaCajaDeAhorroEspecial(
 				elRepositorio);

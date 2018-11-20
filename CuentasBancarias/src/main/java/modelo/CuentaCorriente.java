@@ -3,15 +3,15 @@ package modelo;
 public class CuentaCorriente extends Cuenta {
 	private double descubierto = 0.0;
 
-	private CuentaCorriente(String numero, Cliente titular) {
-		super(numero, titular);
+	private CuentaCorriente(String numero, Cliente titular,Integer idCuenta) {
+		super(numero, titular, idCuenta);
 
 	}
 
-	public static CuentaCorriente instancia(String numero, Cliente titular) {
+	public static CuentaCorriente instancia(String numero, Cliente titular,Integer idCuenta) {
 
 		if (numero != null && titular != null)
-			return new CuentaCorriente(numero, titular);
+			return new CuentaCorriente(numero, titular, idCuenta);
 		else
 			return null;
 

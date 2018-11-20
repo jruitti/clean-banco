@@ -9,5 +9,6 @@ public interface ICuentaCajaAhorroRepositorio {
 	public boolean existeCuentaCajaDeAhorro(CuentaCajaAhorro cuentaCajaAhorro);
 	public boolean guardarCambiosCuenta(CuentaCajaAhorro laCuenta);
 	public boolean existeNumeroCuentaCajaAhorro(String numeroCuenta);
+	public CuentaCajaAhorro devuelveCuentaPorId(Integer idCuenta);
 
 }

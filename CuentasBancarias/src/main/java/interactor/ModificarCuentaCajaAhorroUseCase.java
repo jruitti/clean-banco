@@ -12,8 +12,12 @@ public class ModificarCuentaCajaAhorroUseCase {
 		this.elRepositorio = elRepositorio;
 	}
 	public boolean ModificarCuentaCajaAhorro(CuentaCajaAhorro cuentaCajaAhorro) {
-		if (!elRepositorio.existeNumeroCuentaCajaAhorro(cuentaCajaAhorro.getNumero())) {
-			return elRepositorio.modificarCuentaCajaDeAhorro(cuentaCajaAhorro);
+
+		CuentaCajaAhorro cuentaCajaAhorroDB = elRepositorio.devuelveCuentaPorId(cuentaCajaAhorro.getIdCuenta());
+		
+		if (cuentaCajaAhorro.getNumero().equals(cuentaCajaAhorroDB.getNumero())||!elRepositorio.existeNumeroCuentaCajaAhorro(cuentaCajaAhorro.getNumero())) {
+			cuentaCajaAhorroDB.modificarDatosDb(cuentaCajaAhorro);
+			return elRepositorio.modificarCuentaCajaDeAhorro(cuentaCajaAhorroDB);
 		}
 		return false;
 		
