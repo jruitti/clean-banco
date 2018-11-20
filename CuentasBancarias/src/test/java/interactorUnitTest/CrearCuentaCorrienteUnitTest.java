@@ -74,7 +74,7 @@ class CrearCuentaCorrienteUnitTest {
 		}
 
 		@Override
-		public boolean extraerDineroCuentaCorriente(float montoDinero) {
+		public boolean extraerDineroCuentaCorriente() {
 			return false;
 		}
 

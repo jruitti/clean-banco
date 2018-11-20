@@ -19,12 +19,12 @@ class ExtraerDineroCuentaCorrienteUnitTest {
 
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
 		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("1000", elCliente);
-
+		laCuentaCorriente.depositar(500);
 		ExtraerDineroCuentaCorriente extraerDineroCuentaCorriente = new ExtraerDineroCuentaCorriente(elRepositorio);
 
-		boolean resultado = extraerDineroCuentaCorriente.ExtraerDineroCuentaCorriente(laCuentaCorriente);
+		boolean resultado = extraerDineroCuentaCorriente.ExtraerDineroCuentaCorriente(laCuentaCorriente,1500);
 
-		assertTrue(resultado);
+		assertEquals(-1000.0,laCuentaCorriente.getSaldo(),2);
 
 	}
 
@@ -34,12 +34,12 @@ class ExtraerDineroCuentaCorrienteUnitTest {
 
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
 		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("1000", elCliente);
-
+		laCuentaCorriente.depositar(500);
 		ExtraerDineroCuentaCorriente extraerDineroCuentaCorriente = new ExtraerDineroCuentaCorriente(elRepositorio);
 
-		boolean resultado = extraerDineroCuentaCorriente.ExtraerDineroCuentaCorriente(laCuentaCorriente);
+		boolean resultado = extraerDineroCuentaCorriente.ExtraerDineroCuentaCorriente(laCuentaCorriente,7600);
 
-		assertFalse(resultado);
+		assertEquals(500,laCuentaCorriente.getSaldo(),2);
 
 	}
 
@@ -78,7 +78,7 @@ class ExtraerDineroCuentaCorrienteUnitTest {
 		}
 
 		@Override
-		public boolean extraerDineroCuentaCorriente(float montoDinero) {
+		public boolean extraerDineroCuentaCorriente() {
 			// TODO Auto-generated method stub
 			return extraccion;
 		}

@@ -79,7 +79,7 @@ class RepositorioCuentaCajaDeAhorroEspecial implements ICuentaCajaDeAhorroEspeci
 	}
 
 	@Override
-	public boolean consultarExtraccionMesEnCurso(CuentaCajaDeAhorroEspecial laCuenta) {
+	public boolean consultarCuentaCajaDeAhorro(CuentaCajaDeAhorroEspecial laCuenta) {
 		// TODO Auto-generated method stub
 		return false;
 	}

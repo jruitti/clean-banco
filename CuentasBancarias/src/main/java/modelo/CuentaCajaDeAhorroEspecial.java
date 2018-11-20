@@ -31,6 +31,9 @@ public class CuentaCajaDeAhorroEspecial extends Cuenta {
 		return false;
 	}
 	
+	public LocalDate getUltimoExtraccion() {
+		return ultimoExtraccion;
+	}
 	public void actualizarFechaUltima(LocalDate fecha) {
 		this.ultimoExtraccion = fecha;
 	}

@@ -11,9 +11,10 @@ public class ExtraerDineroCuentaCorriente {
 		this.elRepositorio = elRepositorio;
 	}
 	
-	public boolean ExtraerDineroCuentaCorriente(CuentaCorriente pCuentaCorriente) {
+	public boolean ExtraerDineroCuentaCorriente(CuentaCorriente pCuentaCorriente, double monto) {
 		
-		if (elRepositorio.extraerDineroCuentaCorriente(1500)) {
+		if (elRepositorio.extraerDineroCuentaCorriente()) {
+			pCuentaCorriente.extraer(monto);
 			return true;
 		}
 		return false;
