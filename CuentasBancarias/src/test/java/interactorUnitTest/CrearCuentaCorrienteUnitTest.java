@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import interactor.CrearCuentaCorrienteUseCase;
 import modelo.Cliente;
+import modelo.CuentaCajaAhorro;
 import modelo.CuentaCorriente;
 import repositorio.ICuentaCorrienteRepositorio;
 
@@ -18,7 +19,7 @@ class CrearCuentaCorrienteUnitTest {
 		elRepositorio.resultado = true;
 
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
-		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("001", elCliente);
+		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("001", elCliente,1);
 
 		CrearCuentaCorrienteUseCase crearCuentaCorriente = new CrearCuentaCorrienteUseCase(elRepositorio);
 
@@ -33,7 +34,7 @@ class CrearCuentaCorrienteUnitTest {
 		elRepositorio.existeCuenta = true;
 
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
-		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("001", elCliente);
+		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("001", elCliente,1);
 
 		CrearCuentaCorrienteUseCase crearCuentaCorriente = new CrearCuentaCorrienteUseCase(elRepositorio);
 
@@ -76,6 +77,12 @@ class CrearCuentaCorrienteUnitTest {
 		@Override
 		public boolean extraerDineroCuentaCorriente() {
 			return false;
+		}
+
+		@Override
+		public CuentaCorriente devuelveCuentaPorId(Integer idCuenta) {
+			// TODO Auto-generated method stub
+			return null;
 		}
 
 	}

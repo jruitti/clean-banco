@@ -1,5 +1,6 @@
 package repositorio;
 
+import modelo.CuentaCajaAhorro;
 import modelo.CuentaCorriente;
 
 public interface ICuentaCorrienteRepositorio {
@@ -14,5 +15,6 @@ public interface ICuentaCorrienteRepositorio {
 	boolean crearCuentaCorriente(CuentaCorriente cuentaCorrienteNuevo);
 
 	public boolean extraerDineroCuentaCorriente();
+	public CuentaCorriente devuelveCuentaPorId(Integer idCuenta);
 
 }

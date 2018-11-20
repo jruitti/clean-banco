@@ -45,5 +45,9 @@ public class CuentaCorriente extends Cuenta {
 			
 		
 	}
+	public void modificarDatosDb(CuentaCorriente cuentaCorriente) {
+		this.setNumero(cuentaCorriente.getNumero());
+		
+	}
 
 }

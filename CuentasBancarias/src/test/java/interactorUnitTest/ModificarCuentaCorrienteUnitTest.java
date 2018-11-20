@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import interactor.ModificarCuentaCorriente;
 import modelo.Cliente;
+import modelo.CuentaCajaAhorro;
 import modelo.CuentaCorriente;
 import repositorio.ICuentaCorrienteRepositorio;
 
@@ -18,7 +19,7 @@ class ModificarCuentaCorrienteUnitTest {
 		elRepositorio.resultado = true;
 
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
-		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("1000", elCliente);
+		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("1000", elCliente,1);
 
 		ModificarCuentaCorriente modificarCuentaCorriente = new ModificarCuentaCorriente(elRepositorio);
 
@@ -33,7 +34,7 @@ class ModificarCuentaCorrienteUnitTest {
 		elRepositorio.existeNumero = true;
 
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
-		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("1000", elCliente);
+		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("1000", elCliente,1);
 
 		ModificarCuentaCorriente modificarCuentaCorriente = new ModificarCuentaCorriente(elRepositorio);
 
@@ -74,6 +75,13 @@ class ModificarCuentaCorrienteUnitTest {
 		@Override
 		public boolean extraerDineroCuentaCorriente() {
 			return false;
+		}
+
+		@Override
+		public CuentaCorriente devuelveCuentaPorId(Integer idCuenta) {
+			Cliente clienteDb = Cliente.instancia(1, "perez", "pepe", "1234", "San Rafael");
+			CuentaCorriente cuentaCorrienteDb= CuentaCorriente.instancia("1000", clienteDb, 1);
+			return cuentaCorrienteDb;
 		}
 
 	}

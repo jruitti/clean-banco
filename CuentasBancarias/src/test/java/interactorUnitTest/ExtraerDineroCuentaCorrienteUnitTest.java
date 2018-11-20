@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import interactor.ExtraerDineroCuentaCorriente;
 import modelo.Cliente;
+import modelo.CuentaCajaAhorro;
 import modelo.CuentaCorriente;
 import repositorio.ICuentaCorrienteRepositorio;
 
@@ -18,7 +19,7 @@ class ExtraerDineroCuentaCorrienteUnitTest {
 		elRepositorio.extraccion = true;
 
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
-		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("1000", elCliente);
+		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("1000", elCliente,1);
 		laCuentaCorriente.depositar(500);
 		ExtraerDineroCuentaCorriente extraerDineroCuentaCorriente = new ExtraerDineroCuentaCorriente(elRepositorio);
 
@@ -33,7 +34,7 @@ class ExtraerDineroCuentaCorrienteUnitTest {
 		RepositorioCuentaCorriente elRepositorio = new RepositorioCuentaCorriente();
 
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
-		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("1000", elCliente);
+		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("1000", elCliente,1);
 		laCuentaCorriente.depositar(500);
 		ExtraerDineroCuentaCorriente extraerDineroCuentaCorriente = new ExtraerDineroCuentaCorriente(elRepositorio);
 
@@ -81,6 +82,12 @@ class ExtraerDineroCuentaCorrienteUnitTest {
 		public boolean extraerDineroCuentaCorriente() {
 			// TODO Auto-generated method stub
 			return extraccion;
+		}
+
+		@Override
+		public CuentaCorriente devuelveCuentaPorId(Integer idCuenta) {
+			// TODO Auto-generated method stub
+			return null;
 		}
 
 	}

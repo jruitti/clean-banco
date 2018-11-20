@@ -1,5 +1,6 @@
 package interactor;
 
+import modelo.CuentaCajaAhorro;
 import modelo.CuentaCorriente;
 import repositorio.ICuentaCorrienteRepositorio;
 
@@ -12,8 +13,11 @@ public class ModificarCuentaCorriente {
 	}
 
 	public boolean ModificarCuentaCorriente(CuentaCorriente cuentaCorriente) {
-		if (!elRepositorio.existeCuentaCorrientePorNumero(cuentaCorriente.getNumero())) {
-			return elRepositorio.modificarCuentaCorriente(cuentaCorriente);
+		CuentaCorriente cuentaCorrienteDB = elRepositorio.devuelveCuentaPorId(cuentaCorriente.getIdCuenta());
+		
+		if (cuentaCorriente.getNumero().equals(cuentaCorrienteDB.getNumero())||!elRepositorio.existeCuentaCorrientePorNumero(cuentaCorriente.getNumero())) {
+			cuentaCorrienteDB.modificarDatosDb(cuentaCorriente);
+			return elRepositorio.modificarCuentaCorriente(cuentaCorrienteDB);
 		}
 		return false;
 
