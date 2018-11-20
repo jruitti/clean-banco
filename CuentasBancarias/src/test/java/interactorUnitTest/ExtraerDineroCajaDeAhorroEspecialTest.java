@@ -65,7 +65,7 @@ public class ExtraerDineroCajaDeAhorroEspecialTest {
 		}
 
 		@Override
-		public boolean consultarCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial) {
+		public boolean existeCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial) {
 			// TODO Auto-generated method stub
 			return false;
 		}

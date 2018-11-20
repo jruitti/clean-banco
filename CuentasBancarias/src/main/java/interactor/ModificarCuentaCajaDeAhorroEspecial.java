@@ -14,7 +14,7 @@ public class ModificarCuentaCajaDeAhorroEspecial {
 	}
 
 	public boolean modificarCuentaCajaAhorroEspecial(CuentaCajaDeAhorroEspecial cuentaModificar, Cliente nuevoTitular) {
-		if(!elRepositorio.consultarCuentaCajaDeAhorroEspecial(cuentaModificar)) {
+		if(!elRepositorio.existeCuentaCajaDeAhorroEspecial(cuentaModificar)) {
 			CuentaCajaDeAhorroEspecial nuevaCuenta = CuentaCajaDeAhorroEspecial.instancia(cuentaModificar.getNumero(), nuevoTitular);
 			return elRepositorio.modificarCuentaCajaDeAhorroEspecial(nuevaCuenta);
 		}

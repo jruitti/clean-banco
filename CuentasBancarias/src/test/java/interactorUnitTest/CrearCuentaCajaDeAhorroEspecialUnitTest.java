@@ -65,7 +65,7 @@ class RepositorioCuentaCajaDeAhorroEspecial implements ICuentaCajaDeAhorroEspeci
 	}
 
 	@Override
-	public boolean consultarCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial) {
+	public boolean existeCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial) {
 		// TODO Ap�ndice de m�todo generado autom�ticamente
 		return existeCuenta;
 	}

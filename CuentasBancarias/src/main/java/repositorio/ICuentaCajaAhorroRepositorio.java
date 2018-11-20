@@ -8,4 +8,6 @@ public interface ICuentaCajaAhorroRepositorio {
 	public boolean modificarCuentaCajaDeAhorro(CuentaCajaAhorro persCuentaCajaDeAhorro);
 	public boolean ExtraerDineroCajaAhorro(CuentaCajaAhorro persCuentaCajaDeAhorro);
 
+	public boolean guardarCambiosCuenta(CuentaCajaAhorro laCuenta);
+
 }

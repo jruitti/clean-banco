@@ -13,6 +13,10 @@ public class ExtraerDineroCajaDeAhorroUseCase {
 
 	public boolean ExtraerDineroCuentaCajaDeAhorro(CuentaCajaAhorro laCuenta, double monto) {
 		boolean resultado = laCuenta.extraer(monto);
+		if (resultado) {
+			elRepositorio.guardarCambiosCuenta(laCuenta);
+			
+		}
 		
 		return resultado;
 	}

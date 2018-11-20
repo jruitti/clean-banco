@@ -6,7 +6,7 @@ import modelo.CuentaCajaDeAhorroEspecial;
 public interface ICuentaCajaDeAhorroEspecialRepositorio {
 	
 	public boolean crearCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial);
-	public boolean consultarCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial);
+	public boolean existeCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial);
 	public boolean modificarCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial);
 	public boolean guardarCajaAhorroEspecial(CuentaCajaDeAhorroEspecial nuevaCuenta);
 	public boolean ExtraerDineroCajaAhorroEspecial(float dinero);
