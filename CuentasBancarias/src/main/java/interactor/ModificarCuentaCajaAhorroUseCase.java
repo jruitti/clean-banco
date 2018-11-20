@@ -1,6 +1,7 @@
 package interactor;
 
 import modelo.CuentaCajaAhorro;
+import modelo.CuentaCorriente;
 import repositorio.ICuentaCajaAhorroRepositorio;
 
 public class ModificarCuentaCajaAhorroUseCase {
@@ -10,12 +11,12 @@ public class ModificarCuentaCajaAhorroUseCase {
 	public ModificarCuentaCajaAhorroUseCase(ICuentaCajaAhorroRepositorio elRepositorio) {
 		this.elRepositorio = elRepositorio;
 	}
-
-
 	public boolean ModificarCuentaCajaAhorro(CuentaCajaAhorro cuentaCajaAhorro) {
-		CuentaCajaAhorro cuentaAhorroNuevo = CuentaCajaAhorro.instancia(cuentaCajaAhorro.getNumero(),cuentaCajaAhorro.getTitular());
-		return elRepositorio.modificarCuentaCajaDeAhorro(cuentaAhorroNuevo);
+		if (!elRepositorio.existeNumeroCuentaCajaAhorro(cuentaCajaAhorro.getNumero())) {
+			return elRepositorio.modificarCuentaCajaDeAhorro(cuentaCajaAhorro);
+		}
+		return false;
+		
 	}
-
-
+	
 }

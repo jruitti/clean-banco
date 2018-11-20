@@ -68,7 +68,6 @@ public class Cliente {
 	
 	public boolean consultarCliente(Cliente clienteCuil) {
 		if(getCuil()==clienteCuil.getCuil()) {
-			System.out.println(getCuil()+clienteCuil.getCuil());
 			return true;
 		}
 		return false;

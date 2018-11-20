@@ -100,6 +100,12 @@ class ExtraerCuentaCajaAhorroUnitTest {
 			// TODO Auto-generated method stub
 			return true;
 		}
+
+		@Override
+		public boolean existeCuentaCajaDeAhorro(CuentaCajaAhorro cuentaCajaAhorro) {
+			// TODO Auto-generated method stub
+			return false;
+		}
 	}
 
 }
