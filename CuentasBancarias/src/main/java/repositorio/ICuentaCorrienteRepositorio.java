@@ -13,6 +13,6 @@ public interface ICuentaCorrienteRepositorio {
 
 	boolean crearCuentaCorriente(CuentaCorriente cuentaCorrienteNuevo);
 
-	public boolean extraerDineroCuentaCorriente(float montoDinero);
+	public boolean extraerDineroCuentaCorriente();
 
 }
