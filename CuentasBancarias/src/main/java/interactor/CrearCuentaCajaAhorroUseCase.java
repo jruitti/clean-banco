@@ -1,5 +1,6 @@
 package interactor;
 
+import modelo.Cliente;
 import modelo.CuentaCajaAhorro;
 import repositorio.ICuentaCajaAhorroRepositorio;
 
@@ -12,8 +13,9 @@ public class CrearCuentaCajaAhorroUseCase {
 	}
 
 	public boolean CrearCuentaCajaAhorro(CuentaCajaAhorro cuentaCajaAhorro) {
-		CuentaCajaAhorro cuentaAhorroNuevo = new CuentaCajaAhorro(cuentaCajaAhorro.getNumero(), cuentaCajaAhorro.getTitular());
-		return elRepositorio.crearCuentaCajaDeAhorro(cuentaAhorroNuevo);
+		if (!elRepositorio.existeCuentaCajaDeAhorro(cuentaCajaAhorro))
+			return elRepositorio.crearCuentaCajaDeAhorro(cuentaCajaAhorro);
+		return false;
 	}
 
 }
