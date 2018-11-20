@@ -17,35 +17,39 @@ class CrearCuentaCajaAhorroUnitTest {
 		RepositorioCliente elRepositorio = new RepositorioCliente();
 		elRepositorio.existeCliente = false;
 		ICuentaCajaAhorroRepositorio elRepositorioCuentaCajaAhorro = new RepositorioCuentaCajaDeAhorro();
-		Cliente elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678-4","San Martin 100");
+		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
 		CuentaCajaAhorro laCuentaCajaAhorro = CuentaCajaAhorro.instancia("1", elCliente);
-		
-		CrearCuentaCajaAhorroUseCase crearCrearCuentaCajaAhorroUseCase = new CrearCuentaCajaAhorroUseCase(elRepositorioCuentaCajaAhorro); 
+
+		CrearCuentaCajaAhorroUseCase crearCrearCuentaCajaAhorroUseCase = new CrearCuentaCajaAhorroUseCase(
+				elRepositorioCuentaCajaAhorro);
 		boolean resultado = crearCrearCuentaCajaAhorroUseCase.CrearCuentaCajaAhorro(laCuentaCajaAhorro);
 		assertTrue(resultado);
 
 	}
+
 	@Test
 	void crearCuentaCajaAhorro_CuentaCajaAhorroExiste_CuentaNoCreado() {
 		RepositorioCuentaCajaDeAhorro elRepositorio = new RepositorioCuentaCajaDeAhorro();
 		elRepositorio.existeCuenta = true;
-		
-		Cliente elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678-4","San Martin 100");
+
+		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
 		CuentaCajaAhorro laCuentaCajaAhorro = CuentaCajaAhorro.instancia("1", elCliente);
-		
-		CrearCuentaCajaAhorroUseCase crearCrearCuentaCajaAhorroUseCase = new CrearCuentaCajaAhorroUseCase(elRepositorio); 
+
+		CrearCuentaCajaAhorroUseCase crearCrearCuentaCajaAhorroUseCase = new CrearCuentaCajaAhorroUseCase(
+				elRepositorio);
 		boolean resultado = crearCrearCuentaCajaAhorroUseCase.CrearCuentaCajaAhorro(laCuentaCajaAhorro);
 		assertFalse(resultado);
 	}
 
 }
-class RepositorioCuentaCajaDeAhorro implements ICuentaCajaAhorroRepositorio{
+
+class RepositorioCuentaCajaDeAhorro implements ICuentaCajaAhorroRepositorio {
 
 	public boolean resultado;
 	public boolean extraccion;
 	public boolean existeCuenta;
 	public boolean existeNumeroCuenta;
-	
+
 	@Override
 	public boolean crearCuentaCajaDeAhorro(CuentaCajaAhorro persCuentaCajaDeAhorro) {
 		return true;
@@ -65,7 +69,7 @@ class RepositorioCuentaCajaDeAhorro implements ICuentaCajaAhorroRepositorio{
 	public boolean guardarCambiosCuenta(CuentaCajaAhorro laCuenta) {
 		return true;
 	}
-	
+
 	@Override
 	public boolean existeCuentaCajaDeAhorro(CuentaCajaAhorro cuentaCajaAhorro) {
 		return existeCuenta;
@@ -75,5 +79,5 @@ class RepositorioCuentaCajaDeAhorro implements ICuentaCajaAhorroRepositorio{
 	public boolean existeNumeroCuentaCajaAhorro(String numeroCuenta) {
 		return false;
 	}
-	
+
 }

@@ -17,9 +17,11 @@ class CrearCuentaCajaDeAhorroEspecialUnitTest {
 		elRepositorioCuentaDeCajaAhorroEspecial.existeCuenta = false;
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
 		CuentaCajaDeAhorroEspecial laCuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("1", elCliente);
-		CrearCuentaCajaDeAhorroEspecialUseCase crearCrearCuentaCajaDeAhorroEspecialUseCase = new CrearCuentaCajaDeAhorroEspecialUseCase(elRepositorioCuentaDeCajaAhorroEspecial); 
-		
-		boolean resultado = crearCrearCuentaCajaDeAhorroEspecialUseCase.CrearCuentaCajaDeAhorroEspecial(laCuentaCajaDeAhorroEspecial);
+		CrearCuentaCajaDeAhorroEspecialUseCase crearCrearCuentaCajaDeAhorroEspecialUseCase = new CrearCuentaCajaDeAhorroEspecialUseCase(
+				elRepositorioCuentaDeCajaAhorroEspecial);
+
+		boolean resultado = crearCrearCuentaCajaDeAhorroEspecialUseCase
+				.CrearCuentaCajaDeAhorroEspecial(laCuentaCajaDeAhorroEspecial);
 		assertTrue(resultado);
 
 	}
@@ -35,7 +37,7 @@ class CrearCuentaCajaDeAhorroEspecialUnitTest {
 
 		boolean resultado = crearCrearCuentaCajaDeAhorroEspecialUseCase
 				.CrearCuentaCajaDeAhorroEspecial(laCuentaCajaDeAhorroEspecial);
-		assertFalse(resultado); 
+		assertFalse(resultado);
 
 	}
 

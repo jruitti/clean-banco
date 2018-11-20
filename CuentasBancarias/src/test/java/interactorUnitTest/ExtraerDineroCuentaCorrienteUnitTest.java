@@ -10,51 +10,42 @@ import modelo.CuentaCorriente;
 import repositorio.ICuentaCorrienteRepositorio;
 
 class ExtraerDineroCuentaCorrienteUnitTest {
-	
+
 	@Test
 	public void extraerDineroCuentaCorriente_CuentaConSaldo_ExtraccionCompleta() {
 		RepositorioCuentaCorriente elRepositorio = new RepositorioCuentaCorriente();
-		
+
 		elRepositorio.extraccion = true;
-		
-		Cliente elCliente = Cliente.instancia(1,"Perez","Juan","20-12345678-4","San Martin 100");
+
+		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
 		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("1000", elCliente);
-		
+
 		ExtraerDineroCuentaCorriente extraerDineroCuentaCorriente = new ExtraerDineroCuentaCorriente(elRepositorio);
-		
+
 		boolean resultado = extraerDineroCuentaCorriente.ExtraerDineroCuentaCorriente(laCuentaCorriente);
-		
+
 		assertTrue(resultado);
-		
+
 	}
-	
+
 	@Test
 	public void extraerDineroCuentaCorriente_CuentaSinSaldo_ExtraccionIncompleta() {
 		RepositorioCuentaCorriente elRepositorio = new RepositorioCuentaCorriente();
-		
-		
-		
-		Cliente elCliente = Cliente.instancia(1,"Perez","Juan","20-12345678-4","San Martin 100");
+
+		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
 		CuentaCorriente laCuentaCorriente = CuentaCorriente.instancia("1000", elCliente);
-		
+
 		ExtraerDineroCuentaCorriente extraerDineroCuentaCorriente = new ExtraerDineroCuentaCorriente(elRepositorio);
-		
+
 		boolean resultado = extraerDineroCuentaCorriente.ExtraerDineroCuentaCorriente(laCuentaCorriente);
-		
+
 		assertFalse(resultado);
-		
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	class RepositorioCuentaCorriente implements ICuentaCorrienteRepositorio{
-		
+
+	class RepositorioCuentaCorriente implements ICuentaCorrienteRepositorio {
+
 		public boolean extraccion;
-		
 
 		@Override
 		public boolean guardarCuentaCorriente(CuentaCorriente pCuentaCorriente) {
@@ -92,8 +83,6 @@ class ExtraerDineroCuentaCorrienteUnitTest {
 			return extraccion;
 		}
 
-		
-		
 	}
 
 }

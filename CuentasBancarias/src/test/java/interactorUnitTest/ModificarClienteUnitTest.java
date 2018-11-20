@@ -36,7 +36,7 @@ public class ModificarClienteUnitTest {
 
 		boolean resultado = modificarCliente.modificarCliente(elCliente);
 		assertFalse(resultado);
-	
+
 	}
 
 	class ClienteRepositorio implements IClienteRepositorio {
@@ -45,7 +45,6 @@ public class ModificarClienteUnitTest {
 
 		@Override
 		public boolean guardarCliente(Cliente persCliente) {
-			// TODO Auto-generated method stub
 			return false;
 		}
 
