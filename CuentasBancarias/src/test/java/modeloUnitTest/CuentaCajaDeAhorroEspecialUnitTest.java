@@ -70,7 +70,7 @@ public class CuentaCajaDeAhorroEspecialUnitTest {
 	
 	@Test
 	public void ModificarCuentaCajaDeAhorroEspecial_CajaDeAhorroEspecialModificada() {
-		Cliente nuevoCliente= Cliente.instancia(4, "Alive", "Luciano", "20-35064541-2", "B° Las Torres");
+		Cliente nuevoCliente= Cliente.instancia(4, "Alive", "Luciano", "20-35064541-2", "Bï¿½ Las Torres");
 		String numeroCuentaAModificar="15428541";
 		
 		CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("15428796", nuevoCliente);

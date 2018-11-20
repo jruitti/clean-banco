@@ -1,5 +1,7 @@
 package interactor;
 
+import java.time.LocalDate;
+
 import modelo.CuentaCajaDeAhorroEspecial;
 import repositorio.ICuentaCajaDeAhorroEspecialRepositorio;
 
@@ -11,14 +13,16 @@ public class ExtraerDineroCajaDeAhorroEspecial {
 			this.elRepositorio = elRepositorio;
 		}
 		
-		public boolean ExtraerDineroCuentaCorriente(CuentaCajaDeAhorroEspecial laCuenta, float dinero) {
-			if(!elRepositorio.consultarExtraccionMesEnCurso(laCuenta)) {
-				if(elRepositorio.ExtraerDineroCajaAhorroEspecial(dinero)) {
-					return true;
+		public boolean ExtraerDineroCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial laCuenta, float dinero, LocalDate fecha) {
+		
+				
+				if(laCuenta.extraer(dinero, fecha)) {
+					
+					return elRepositorio.actualizarCuentaCajaDeAhorroEspecial(laCuenta);
 				}
 				return false;
-			}
-			return false;
+			
+		
 		}
 		
 		

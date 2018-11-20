@@ -1,6 +1,9 @@
 package interactorUnitTest;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.time.LocalDate;
 
 import org.junit.Test;
 
@@ -14,57 +17,48 @@ public class ExtraerDineroCajaDeAhorroEspecialTest {
 	@Test
 	public void ExtraerDineroCajaDeAhorroEspecial_NoExtrajoEnElMes_PermiteExtraer() {
 		RepositorioCuentaCajaAhorroEspecial elRepositorio = new RepositorioCuentaCajaAhorroEspecial();
-		elRepositorio.resultado = false;
-		elRepositorio.extraccion = true;
+		elRepositorio.resultado = true;
+		LocalDate ultimaExtraccion = LocalDate.of(2018, 10, 12);
+		LocalDate fechaActual = LocalDate.of(2018, 11, 10);
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
 		CuentaCajaDeAhorroEspecial laCuenta = CuentaCajaDeAhorroEspecial.instancia("1000", elCliente);
-
+		laCuenta.actualizarFechaUltima(ultimaExtraccion);
+		laCuenta.depositar(1000);
 		ExtraerDineroCajaDeAhorroEspecial extraerDineroCajaAhorro = new ExtraerDineroCajaDeAhorroEspecial(
 				elRepositorio);
 
-		assertTrue(extraerDineroCajaAhorro.ExtraerDineroCuentaCorriente(laCuenta, 1000));
+		assertTrue(extraerDineroCajaAhorro.ExtraerDineroCuentaCajaDeAhorroEspecial(laCuenta, 500, fechaActual));
+		assertEquals(500.0, laCuenta.getSaldo(), 2);
+		assertEquals(fechaActual, laCuenta.getUltimoExtraccion());
 
 	}
 
 	@Test
 	public void ExtraerDineroCajaDeAhorroEspecial_NoExtrajoEnElMes_NoPermiteExtraerMontoInsuficiente() {
 		RepositorioCuentaCajaAhorroEspecial elRepositorio = new RepositorioCuentaCajaAhorroEspecial();
-		elRepositorio.resultado = false;
-		elRepositorio.extraccion = false;
-		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
-		CuentaCajaDeAhorroEspecial laCuenta = CuentaCajaDeAhorroEspecial.instancia("1000", elCliente);
-
-		ExtraerDineroCajaDeAhorroEspecial extraerDineroCajaAhorro = new ExtraerDineroCajaDeAhorroEspecial(
-				elRepositorio);
-
-		assertFalse(extraerDineroCajaAhorro.ExtraerDineroCuentaCorriente(laCuenta, 1000));
-
-	}
-
-	@Test
-	public void ExtraerDineroCajaDeAhorroEspecial_NoExtrajoEnElMes_NoPermiteExtraerYaSacoEnElMes() {
-		RepositorioCuentaCajaAhorroEspecial elRepositorio = new RepositorioCuentaCajaAhorroEspecial();
 		elRepositorio.resultado = true;
-
+		LocalDate ultimaExtraccion = LocalDate.of(2018, 10, 12);
+		LocalDate fechaActual = LocalDate.of(2018, 10, 14);
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
+		
 		CuentaCajaDeAhorroEspecial laCuenta = CuentaCajaDeAhorroEspecial.instancia("1000", elCliente);
-
+		laCuenta.actualizarFechaUltima(ultimaExtraccion);
+		laCuenta.depositar(1000);
 		ExtraerDineroCajaDeAhorroEspecial extraerDineroCajaAhorro = new ExtraerDineroCajaDeAhorroEspecial(
 				elRepositorio);
 
-		assertFalse(extraerDineroCajaAhorro.ExtraerDineroCuentaCorriente(laCuenta, 1000));
-
+		assertFalse(extraerDineroCajaAhorro.ExtraerDineroCuentaCajaDeAhorroEspecial(laCuenta, 1000, fechaActual));
+		assertEquals(1000.0, laCuenta.getSaldo(), 2);
+		assertEquals(ultimaExtraccion, laCuenta.getUltimoExtraccion());
 	}
 
-	@Test
-	public void ExtraerDineroCajaDeAhorroEspecial_ExtrajoEnElMes_NoPermiteExtraer() {
 
-	}
+
+
 
 	class RepositorioCuentaCajaAhorroEspecial implements ICuentaCajaDeAhorroEspecialRepositorio {
 		public boolean resultado;
-		public boolean extraccion;
-
+		
 		@Override
 		public boolean crearCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial) {
 			// TODO Auto-generated method stub
@@ -89,15 +83,15 @@ public class ExtraerDineroCajaDeAhorroEspecialTest {
 			return false;
 		}
 
-		@Override
-		public boolean consultarExtraccionMesEnCurso(CuentaCajaDeAhorroEspecial laCuenta) {
-			return resultado;
-		}
+		
+		
+
+		
 
 		@Override
-		public boolean ExtraerDineroCajaAhorroEspecial(float dinero) {
-			// TODO Auto-generated method stub
-			return extraccion;
+		public boolean actualizarCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial laCuenta) {
+			
+			return resultado;
 		}
 
 	}
