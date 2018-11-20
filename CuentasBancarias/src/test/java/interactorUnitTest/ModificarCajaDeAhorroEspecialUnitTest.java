@@ -17,15 +17,14 @@ public class ModificarCajaDeAhorroEspecialUnitTest {
 		RepositorioCuentaCajaDeAhorroEspecial elRepositorio = new RepositorioCuentaCajaDeAhorroEspecial();
 		elRepositorio.existeCuenta = false;
 
+		String numeroModificar = "15428541";
 		Cliente nuevoCliente = Cliente.instancia(4, "Alive", "Luciano", "20-35064541-2", "B° Las Torres");
-		Cliente clienteModificar = Cliente.instancia(5, "Casiva", "Laura", "27-355541350-6", "Paiman Sur");
 		CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("15428796",
 				nuevoCliente);
 
 		ModificarCuentaCajaDeAhorroEspecial modificarCajaDeAhorroEspecialUseCase = new ModificarCuentaCajaDeAhorroEspecial(
 				elRepositorio);
-		resultado = modificarCajaDeAhorroEspecialUseCase.modificarCuentaCajaAhorroEspecial(cuentaCajaDeAhorroEspecial,
-				clienteModificar);
+		resultado = modificarCajaDeAhorroEspecialUseCase.modificarCuentaCajaAhorroEspecial(cuentaCajaDeAhorroEspecial, numeroModificar);
 
 		assertTrue(resultado);
 	}
@@ -36,15 +35,14 @@ public class ModificarCajaDeAhorroEspecialUnitTest {
 		RepositorioCuentaCajaDeAhorroEspecial elRepositorio = new RepositorioCuentaCajaDeAhorroEspecial();
 		elRepositorio.existeCuenta = true;
 
+		String numeroModificar = "15428541";
 		Cliente nuevoCliente = Cliente.instancia(4, "Alive", "Luciano", "20-35064541-2", "B° Las Torres");
-		Cliente clienteModificar = Cliente.instancia(5, "Casiva", "Laura", "27-355541350-6", "Paiman Sur");
 		CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("15428796",
 				nuevoCliente);
 
 		ModificarCuentaCajaDeAhorroEspecial modificarCajaDeAhorroEspecialUseCase = new ModificarCuentaCajaDeAhorroEspecial(
 				elRepositorio);
-		resultado = modificarCajaDeAhorroEspecialUseCase.modificarCuentaCajaAhorroEspecial(cuentaCajaDeAhorroEspecial,
-				clienteModificar);
+		resultado = modificarCajaDeAhorroEspecialUseCase.modificarCuentaCajaAhorroEspecial(cuentaCajaDeAhorroEspecial, numeroModificar);
 
 		assertFalse(resultado);
 	}

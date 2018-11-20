@@ -13,10 +13,10 @@ public class ModificarCuentaCajaDeAhorroEspecial {
 		this.elRepositorio = elRepositorio;
 	}
 
-	public boolean modificarCuentaCajaAhorroEspecial(CuentaCajaDeAhorroEspecial cuentaModificar, Cliente nuevoTitular) {
+	public boolean modificarCuentaCajaAhorroEspecial(CuentaCajaDeAhorroEspecial cuentaModificar, String numeroModificar) {
 		if(!elRepositorio.existeCuentaCajaDeAhorroEspecial(cuentaModificar)) {
-			CuentaCajaDeAhorroEspecial nuevaCuenta = CuentaCajaDeAhorroEspecial.instancia(cuentaModificar.getNumero(), nuevoTitular);
-			return elRepositorio.modificarCuentaCajaDeAhorroEspecial(nuevaCuenta);
+			cuentaModificar.modificarCajaAhorroEspecial(cuentaModificar, numeroModificar);
+			return elRepositorio.guardarCajaAhorroEspecial(cuentaModificar);
 		}
 		return false;
 		

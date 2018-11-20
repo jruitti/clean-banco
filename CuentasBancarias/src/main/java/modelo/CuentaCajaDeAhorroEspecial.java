@@ -35,9 +35,9 @@ public class CuentaCajaDeAhorroEspecial extends Cuenta {
 		this.ultimoExtraccion = fecha;
 	}
 	
-	public void modificarCajaAhorroEspecial(Cliente nuevoTitular, String numeroCuenta) {
-		if(super.getNumero()==numeroCuenta) {
-			super.setTitular(nuevoTitular);
+	public void modificarCajaAhorroEspecial(CuentaCajaDeAhorroEspecial cuentaAModificar, String nuevoNumeroCuenta) {
+		if(super.getNumero()==cuentaAModificar.getNumero()) {
+			super.setNumeroCuenta(nuevoNumeroCuenta);
 		}
 	}
 	

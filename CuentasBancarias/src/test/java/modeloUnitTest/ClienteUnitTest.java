@@ -53,11 +53,12 @@ public class ClienteUnitTest {
 		boolean consulta;
 		
 		Cliente elCliente;
-		Cliente elCliente2;
+		boolean cuilDevuelto;
+		String cuilConsultado;
 		elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678","San Martin 100");
-		elCliente2=Cliente.instancia(1,"Perez","Juan","20-12345678","San Martin 100");
-		consulta = elCliente.consultarCliente(elCliente2);
-		assertTrue(consulta);
+		cuilConsultado="20-12345678";
+		cuilDevuelto=elCliente.consultarCliente(elCliente,cuilConsultado);
+		assertTrue(cuilDevuelto);
 
 		
 	}
@@ -67,12 +68,12 @@ public class ClienteUnitTest {
 		boolean consulta;
 		
 		Cliente elCliente;
-		Cliente elCliente2;
-		
+		boolean cuilDevuelto;
+		String cuilConsultado;
 		elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678","San Martin 100");
-		elCliente2=Cliente.instancia(2,"Alive","Luciano","20-35064541-2","25 de Mayo");
-		consulta = elCliente.consultarCliente(elCliente2);
-		assertFalse(consulta);
+		cuilConsultado="20-1234567";
+		cuilDevuelto=elCliente.consultarCliente(elCliente,cuilConsultado);
+		assertFalse(cuilDevuelto);
 
 		
 	}

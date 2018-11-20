@@ -41,7 +41,7 @@ class CuentaCajaAhorroUnitTest {
 	}
 
 	@Test
-	public void intanciaExtracionCajaAhorro_extracionParcialCorrecta() {
+	public void instanciaExtracionCajaAhorro_extracionParcialCorrecta() {
 		CuentaCajaAhorro cuentaCajaAhorro;
 		Cliente clienteCuenta = Cliente.instancia(2, "Perez", "Pepe", "12345", "Santa Rosa 321");
 		cuentaCajaAhorro = CuentaCajaAhorro.instancia("123456789", clienteCuenta);
@@ -51,7 +51,7 @@ class CuentaCajaAhorroUnitTest {
 	}
 
 	@Test
-	public void intanciaExtracionCajaAhorro_extracionTotalCorrecta() {
+	public void instanciaExtracionCajaAhorro_extracionTotalCorrecta() {
 		CuentaCajaAhorro cuentaCajaAhorro;
 		Cliente clienteCuenta = Cliente.instancia(2, "Perez", "Pepe", "12345", "Santa Rosa 321");
 		cuentaCajaAhorro = CuentaCajaAhorro.instancia("123456789", clienteCuenta);
@@ -61,7 +61,7 @@ class CuentaCajaAhorroUnitTest {
 	}
 
 	@Test
-	public void intanciaExtracionCajaAhorro_SinSaldoDisponibleCuentaNueva_devuelveCero() {
+	public void instanciaExtracionCajaAhorro_SinSaldoDisponibleCuentaNueva_devuelveCero() {
 		CuentaCajaAhorro cuentaCajaAhorro;
 		Cliente clienteCuenta = Cliente.instancia(2, "Perez", "Pepe", "12345", "Santa Rosa 321");
 		cuentaCajaAhorro = CuentaCajaAhorro.instancia("123456789", clienteCuenta);
@@ -70,7 +70,7 @@ class CuentaCajaAhorroUnitTest {
 	}
 
 	@Test
-	public void intanciaExtracionCajaAhorro_SaldoInsuficiente_devuelveSaldo() {
+	public void instanciaExtracionCajaAhorro_SaldoInsuficiente_devuelveSaldo() {
 		CuentaCajaAhorro cuentaCajaAhorro;
 		Cliente clienteCuenta = Cliente.instancia(2, "Perez", "Pepe", "12345", "Santa Rosa 321");
 		cuentaCajaAhorro = CuentaCajaAhorro.instancia("123456789", clienteCuenta);

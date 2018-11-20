@@ -71,23 +71,13 @@ public class CuentaCajaDeAhorroEspecialUnitTest {
 	@Test
 	public void ModificarCuentaCajaDeAhorroEspecial_CajaDeAhorroEspecialModificada() {
 		Cliente nuevoCliente= Cliente.instancia(4, "Alive", "Luciano", "20-35064541-2", "B° Las Torres");
-		Cliente clienteModificar = Cliente.instancia(5, "Casiva", "Laura", "27-355541350-6", "Paiman Sur");
+		String numeroCuentaAModificar="15428541";
 		
 		CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("15428796", nuevoCliente);
-		cuentaCajaDeAhorroEspecial.modificarCajaAhorroEspecial(clienteModificar, "15428796");
+		cuentaCajaDeAhorroEspecial.modificarCajaAhorroEspecial(cuentaCajaDeAhorroEspecial, numeroCuentaAModificar);
 		
-		assertEquals(clienteModificar.getApellido(),cuentaCajaDeAhorroEspecial.getTitular().getApellido());
+		assertEquals(cuentaCajaDeAhorroEspecial.getNumero(),numeroCuentaAModificar);
 	}
 	
-	@Test
-	public void ModificarCuentaCajaDeAhorroEspecial_CajaDeAhorroEspecialNoModificada() {
-		Cliente nuevoCliente= Cliente.instancia(4, "Alive", "Luciano", "20-35064541-2", "B° Las Torres");
-		Cliente clienteModificar = Cliente.instancia(5, "Casiva", "Laura", "27-355541350-6", "Paiman Sur");
-		
-		CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("15428796", nuevoCliente);
-		cuentaCajaDeAhorroEspecial.modificarCajaAhorroEspecial(clienteModificar, "1542879");
-		
-		assertEquals(nuevoCliente.getApellido(),cuentaCajaDeAhorroEspecial.getTitular().getApellido());
-	}
-	
+
 }

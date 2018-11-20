@@ -57,6 +57,9 @@ public class Cuenta {
 	public void setTitular(Cliente nuevoTitular) {
 		this.titular = nuevoTitular;
 	}
+	public void setNumeroCuenta(String numeroCuenta) {
+		this.numero = numeroCuenta;
+	}
 	
 }
 
