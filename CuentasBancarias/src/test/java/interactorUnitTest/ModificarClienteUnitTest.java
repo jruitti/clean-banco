@@ -30,6 +30,7 @@ public class ModificarClienteUnitTest {
 	public void modificarClientePorId_IdExiste_NoSeModificaCliente() {
 		RepositorioCliente elRepositorio = new RepositorioCliente();
 		elRepositorio.existeId = false;
+		elRepositorio.resultado=false;
 
 		Cliente elCliente = Cliente.instancia(1, "Pez", "Javier", "1234", "San Jose");
 		ModificarClienteUseCase modificarCliente = new ModificarClienteUseCase(elRepositorio);
@@ -50,7 +51,6 @@ public class ModificarClienteUnitTest {
 
 		@Override
 		public boolean existeCliente(Cliente persCliente) {
-			// TODO Auto-generated method stub
 			return false;
 		}
 

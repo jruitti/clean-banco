@@ -17,7 +17,7 @@ class ModificarCuentaCajaAhorroUnitTest {
 	@Test
 	void ModificarCuentaCajaAhorro_NumeroCuentaNoExiste_CuentaModificada() {
 		RepositorioCuentaCajaDeAhorro elRepositorio = new RepositorioCuentaCajaDeAhorro();
-		elRepositorio.existeNumeroCuenta = true;
+		elRepositorio.existeNumeroCuenta = false;
 		elRepositorio.resultado = true;
 
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
@@ -32,8 +32,7 @@ class ModificarCuentaCajaAhorroUnitTest {
 	@Test
 	void ModificarCuentaCajaAhorro_NumeroCuentaExiste_CuentaNoModificada() {
 		RepositorioCuentaCajaDeAhorro elRepositorio = new RepositorioCuentaCajaDeAhorro();
-		elRepositorio.existeNumeroCuenta = false;
-		elRepositorio.resultado = true;
+		elRepositorio.existeNumeroCuenta = true;
 
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
 		CuentaCajaAhorro cuentaCajaAhorro = CuentaCajaAhorro.instancia("1000", elCliente);
@@ -41,7 +40,7 @@ class ModificarCuentaCajaAhorroUnitTest {
 		ModificarCuentaCajaAhorroUseCase modificarCuentaCorriente = new ModificarCuentaCajaAhorroUseCase(elRepositorio);
 
 		boolean resultado = modificarCuentaCorriente.ModificarCuentaCajaAhorro(cuentaCajaAhorro);
-		assertTrue(resultado);
+		assertFalse(resultado);
 	}
 
 	class RepositorioCuentaCajaDeAhorro implements ICuentaCajaAhorroRepositorio {
@@ -78,7 +77,7 @@ class ModificarCuentaCajaAhorroUnitTest {
 
 		@Override
 		public boolean existeNumeroCuentaCajaAhorro(String numeroCuenta) {
-			return false;
+			return existeNumeroCuenta;
 		}
 	}
 }
