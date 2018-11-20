@@ -71,18 +71,13 @@ public class CuentaCajaDeAhorroEspecialUnitTest {
 
 	@Test
 	public void ModificarCuentaCajaDeAhorroEspecial_CajaDeAhorroEspecialModificada() {
-<<<<<<< HEAD
-		Cliente nuevoCliente = Cliente.instancia(4, "Alive", "Luciano", "20-35064541-2", "B° Las Torres");
+
+		Cliente nuevoCliente = Cliente.instancia(4, "Alive", "Luciano", "20-35064541-2", "Bï¿½ Las Torres");
 		String numeroCuentaAModificar = "15428541";
 
 		CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("15428796",
 				nuevoCliente, 1);
-=======
-		Cliente nuevoCliente= Cliente.instancia(4, "Alive", "Luciano", "20-35064541-2", "Bï¿½ Las Torres");
-		String numeroCuentaAModificar="15428541";
-		
-		CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("15428796", nuevoCliente);
->>>>>>> master
+
 		cuentaCajaDeAhorroEspecial.modificarCajaAhorroEspecial(cuentaCajaDeAhorroEspecial, numeroCuentaAModificar);
 
 		assertEquals(cuentaCajaDeAhorroEspecial.getNumero(), numeroCuentaAModificar);
