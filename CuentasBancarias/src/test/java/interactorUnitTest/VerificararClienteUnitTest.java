@@ -8,9 +8,9 @@ import org.junit.Test;
 import interactor.consultarClienteUseCase;
 import modelo.Cliente;
 
-public class ConsultarClienteUnitTest {
+public class VerificararClienteUnitTest {
 	@Test
-	public void consultarCliente_ClienteExiste_ClienteDevuelto() {
+	public void verificarCliente_ClienteExiste_ClienteDevuelto() {
 		RepositorioCliente elRepositorio = new RepositorioCliente();
 		elRepositorio.existeCliente=true;
 		
@@ -24,7 +24,7 @@ public class ConsultarClienteUnitTest {
 	}
 	
 	@Test
-	public void consultarCliente_ClienteNoExiste_ClienteNoDevuelto() {
+	public void verificarCliente_ClienteNoExiste_ClienteNoDevuelto() {
 		RepositorioCliente elRepositorio = new RepositorioCliente();
 		elRepositorio.clientePorCuil = false;
 		
