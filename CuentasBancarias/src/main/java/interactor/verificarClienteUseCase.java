@@ -21,5 +21,9 @@ public class verificarClienteUseCase {
 	public boolean verificarClientePorId(int clienteId){
 		return elRepositorio.verificarClientePorId(clienteId);
 	}
+	
+	public boolean verificarClientePorCuil(String clienteCuil){
+		return elRepositorio.verificarClientePorCuil(clienteCuil);
+	}
 
 }
