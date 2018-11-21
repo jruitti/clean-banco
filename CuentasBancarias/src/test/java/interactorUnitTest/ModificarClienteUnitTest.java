@@ -20,9 +20,9 @@ public class ModificarClienteUnitTest {
 		elRepositorio.existeClienteId = true;
 
 		Cliente elCliente = Cliente.instancia(1, "Pez", "Javier", "1234", "San Jose");
-		ModificarClienteUseCase modificarCliente = new ModificarClienteUseCase(elRepositorio);
-
-		boolean resultado = modificarCliente.modificarCliente(elCliente);
+		ModificarClienteUseCase modificarClientee = new ModificarClienteUseCase(elRepositorio);
+		
+		boolean resultado = modificarClientee.modificarCliente(elCliente);
 		assertTrue(resultado);
 	}
 
@@ -33,9 +33,10 @@ public class ModificarClienteUnitTest {
 		elRepositorio.resultado=false;
 
 		Cliente elCliente = Cliente.instancia(1, "Pez", "Javier", "1234", "San Jose");
-		ModificarClienteUseCase modificarCliente = new ModificarClienteUseCase(elRepositorio);
+		ModificarClienteUseCase modificarClientee = new ModificarClienteUseCase(elRepositorio);
 
-		boolean resultado = modificarCliente.modificarCliente(elCliente);
+		boolean resultado = modificarClientee.modificarCliente(elCliente);
+		
 		assertFalse(resultado);
 
 	}
@@ -71,13 +72,12 @@ public class ModificarClienteUnitTest {
 
 		@Override
 		public Cliente devolverClientePorId(Integer idCliente) {
-			Cliente clienteDataBase = Cliente.instancia(1, "Paez", "Ramon", "1234", "San Pedro");
+			Cliente clienteDataBase = Cliente.instancia(1, "Pez", "Javier", "1234", "San Jose");
 			return clienteDataBase;
 		}
 
 		@Override
 		public boolean verificarCliente(String cuilCliente, String apellido, String nombre) {
-			// TODO Auto-generated method stub
 			return false;
 		}
 
