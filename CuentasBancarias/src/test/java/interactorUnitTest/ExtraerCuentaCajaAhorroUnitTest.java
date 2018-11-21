@@ -21,7 +21,7 @@ class ExtraerCuentaCajaAhorroUnitTest {
 		elRepositorio.extraccion = true;
 
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
-		CuentaCajaAhorro laCuenta = CuentaCajaAhorro.instancia("1000", elCliente);
+		CuentaCajaAhorro laCuenta = CuentaCajaAhorro.instancia("1000", elCliente,1);
 
 		ExtraerDineroCajaDeAhorroUseCase extraerDineroCajaAhorro = new ExtraerDineroCajaDeAhorroUseCase(elRepositorio);
 		DepositarDineroCajaAhorroUseCase depositarDineroCajaAhorro = new DepositarDineroCajaAhorroUseCase(
@@ -40,7 +40,7 @@ class ExtraerCuentaCajaAhorroUnitTest {
 		elRepositorio.extraccion = true;
 
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
-		CuentaCajaAhorro laCuenta = CuentaCajaAhorro.instancia("1000", elCliente);
+		CuentaCajaAhorro laCuenta = CuentaCajaAhorro.instancia("1000", elCliente,1);
 
 		ExtraerDineroCajaDeAhorroUseCase extraerDineroCajaAhorro = new ExtraerDineroCajaDeAhorroUseCase(elRepositorio);
 		DepositarDineroCajaAhorroUseCase depositarDineroCajaAhorro = new DepositarDineroCajaAhorroUseCase(
@@ -59,7 +59,7 @@ class ExtraerCuentaCajaAhorroUnitTest {
 		elRepositorio.extraccion = true;
 
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
-		CuentaCajaAhorro laCuenta = CuentaCajaAhorro.instancia("1000", elCliente);
+		CuentaCajaAhorro laCuenta = CuentaCajaAhorro.instancia("1000", elCliente, 1);
 
 		ExtraerDineroCajaDeAhorroUseCase extraerDineroCajaAhorro = new ExtraerDineroCajaDeAhorroUseCase(elRepositorio);
 		DepositarDineroCajaAhorroUseCase depositarDineroCajaAhorro = new DepositarDineroCajaAhorroUseCase(
@@ -104,6 +104,11 @@ class ExtraerCuentaCajaAhorroUnitTest {
 		@Override
 		public boolean existeNumeroCuentaCajaAhorro(String numeroCuenta) {
 			return false;
+		}
+
+		@Override
+		public CuentaCajaAhorro devuelveCuentaPorId(Integer idCuenta) {
+			return null;
 		}
 	}
 
