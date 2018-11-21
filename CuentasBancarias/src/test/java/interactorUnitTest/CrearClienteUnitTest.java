@@ -75,4 +75,10 @@ class RepositorioCliente implements IClienteRepositorio {
 		// TODO Auto-generated method stub
 		return existeCliente;
 	}
+
+	@Override
+	public Cliente devolverClientePorId(Integer idCliente) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
