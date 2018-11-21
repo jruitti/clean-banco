@@ -16,8 +16,16 @@ public class CrearCuentaCajaDeAhorroEspecialUseCase {
 		if (!elRepositorio.existeCuentaCajaDeAhorroEspecial(nuevaCuentaCajaDeAhorroEspecial) ) {
 			return elRepositorio.crearCuentaCajaDeAhorroEspecial(nuevaCuentaCajaDeAhorroEspecial);
 		}
+<<<<<<< Updated upstream
 		return false;
 
+=======
+		CuentaCajaDeAhorroEspecial cuentaAhorroEspecialNuevo = CuentaCajaDeAhorroEspecial.instancia(nuevaCuentaCajaDeAhorroEspecial.getNumero(), nuevaCuentaCajaDeAhorroEspecial.getTitular(),nuevaCuentaCajaDeAhorroEspecial.getIdCuenta());
+		return elRepositorio.crearCuentaCajaDeAhorroEspecial(cuentaAhorroEspecialNuevo);
+		
+		return elRepositorio.crearCuentaCajaDeAhorroEspecial(nuevaCuentaCajaDeAhorroEspecial);
+	}
+>>>>>>> Stashed changes
 
 	}
 }

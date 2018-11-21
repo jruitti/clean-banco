@@ -18,7 +18,7 @@ class CrearCuentaCajaAhorroUnitTest {
 		elRepositorio.existeCliente = false;
 		ICuentaCajaAhorroRepositorio elRepositorioCuentaCajaAhorro = new RepositorioCuentaCajaDeAhorro();
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
-		CuentaCajaAhorro laCuentaCajaAhorro = CuentaCajaAhorro.instancia("1", elCliente);
+		CuentaCajaAhorro laCuentaCajaAhorro = CuentaCajaAhorro.instancia("1", elCliente, 1);
 
 		CrearCuentaCajaAhorroUseCase crearCrearCuentaCajaAhorroUseCase = new CrearCuentaCajaAhorroUseCase(
 				elRepositorioCuentaCajaAhorro);
@@ -33,7 +33,7 @@ class CrearCuentaCajaAhorroUnitTest {
 		elRepositorio.existeCuenta = true;
 
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
-		CuentaCajaAhorro laCuentaCajaAhorro = CuentaCajaAhorro.instancia("1", elCliente);
+		CuentaCajaAhorro laCuentaCajaAhorro = CuentaCajaAhorro.instancia("1", elCliente, 1);
 
 		CrearCuentaCajaAhorroUseCase crearCrearCuentaCajaAhorroUseCase = new CrearCuentaCajaAhorroUseCase(
 				elRepositorio);
@@ -78,6 +78,11 @@ class RepositorioCuentaCajaDeAhorro implements ICuentaCajaAhorroRepositorio {
 	@Override
 	public boolean existeNumeroCuentaCajaAhorro(String numeroCuenta) {
 		return false;
+	}
+
+	@Override
+	public CuentaCajaAhorro devuelveCuentaPorId(Integer idCuenta) {
+		return null;
 	}
 
 }
