@@ -62,8 +62,7 @@ public class Cliente {
 
 	public void modicarCliente(Integer idComprobacion, String apellidoNuevo) {
 		if(getIdCliente()==idComprobacion)
-			setApellido(apellidoNuevo);
-			
+			setApellido(apellidoNuevo);	
 	}
 	
 	public boolean consultarClientePorCuil(Cliente clienteCuil, String numeroCuil) {
