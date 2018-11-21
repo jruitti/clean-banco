@@ -75,6 +75,12 @@ public class ModificarClienteUnitTest {
 			return clienteDataBase;
 		}
 
+		@Override
+		public boolean verificarCliente(String cuilCliente, String apellido, String nombre) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
 	}
 
 }
