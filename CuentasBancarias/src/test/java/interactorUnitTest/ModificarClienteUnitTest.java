@@ -69,6 +69,12 @@ public class ModificarClienteUnitTest {
 			return true;
 		}
 
+		@Override
+		public Cliente devolverClientePorId(Integer idCliente) {
+			Cliente clienteDataBase = Cliente.instancia(1, "Paez", "Ramon", "1234", "San Pedro");
+			return clienteDataBase;
+		}
+
 	}
 
 }

@@ -11,10 +11,13 @@ public class ModificarClienteUseCase {
 	}
 
 	public boolean modificarCliente(Cliente personaCliente) {
-		if (!elRepositorio.existeClientePorId(personaCliente.getIdCliente())) {
-			return elRepositorio.modificarCliente(personaCliente);
+		Cliente clienteDb = elRepositorio.devolverClientePorId(personaCliente.getIdCliente());
+		
+ 		if (personaCliente.getCuil().equals(clienteDb.getCuil())||elRepositorio.consultarClientePorCuil(personaCliente.getCuil())) {
+ 			clienteDb.modificarClienteDb(personaCliente);
+			return elRepositorio.modificarCliente(clienteDb);
 		}
-		return true;
+		return false;
 	}
 
 }
