@@ -78,4 +78,16 @@ class RepositorioCuentaCajaDeAhorroEspecial implements ICuentaCajaDeAhorroEspeci
 		
 		return false;
 	}
+
+	@Override
+	public CuentaCajaDeAhorroEspecial devuelveCuentaPorId(Integer idCuenta) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean existeNumeroCuentaCajaDeAhorroEspecial(String numeroCuenta) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
