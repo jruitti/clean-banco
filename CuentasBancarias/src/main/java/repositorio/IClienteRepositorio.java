@@ -10,6 +10,8 @@ public interface IClienteRepositorio {
 	public boolean modificarCliente(Cliente persCliente);
 
 	public boolean consultarClientePorCuil(String cuilClienteConsultado);
+	
+	public boolean verificarCliente(String cuilCliente, String apellido, String nombre );
 
 	public boolean existeClientePorId(Integer idCliente);
 

@@ -66,7 +66,7 @@ public class Cliente {
 			
 	}
 	
-	public boolean consultarCliente(Cliente clienteCuil, String numeroCuil) {
+	public boolean consultarClientePorCuil(Cliente clienteCuil, String numeroCuil) {
 		if(clienteCuil.getCuil()==numeroCuil) {
 			return true;
 		}

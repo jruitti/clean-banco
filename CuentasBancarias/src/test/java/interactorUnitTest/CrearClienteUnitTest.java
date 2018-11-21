@@ -67,6 +67,12 @@ class RepositorioCliente implements IClienteRepositorio {
 
 	@Override
 	public boolean consultarClientePorCuil(String cuilClienteConsultado) {
-		return false;
+		return clientePorCuil;
+	}
+
+	@Override
+	public boolean verificarCliente(String cuilCliente, String apellido, String nombre) {
+		// TODO Auto-generated method stub
+		return existeCliente;
 	}
 }

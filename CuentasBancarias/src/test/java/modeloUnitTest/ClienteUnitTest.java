@@ -57,7 +57,7 @@ public class ClienteUnitTest {
 		String cuilConsultado;
 		elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678","San Martin 100");
 		cuilConsultado="20-12345678";
-		cuilDevuelto=elCliente.consultarCliente(elCliente,cuilConsultado);
+		cuilDevuelto=elCliente.consultarClientePorCuil(elCliente,cuilConsultado);
 		assertTrue(cuilDevuelto);
 
 		
@@ -72,7 +72,7 @@ public class ClienteUnitTest {
 		String cuilConsultado;
 		elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678","San Martin 100");
 		cuilConsultado="20-1234567";
-		cuilDevuelto=elCliente.consultarCliente(elCliente,cuilConsultado);
+		cuilDevuelto=elCliente.consultarClientePorCuil(elCliente,cuilConsultado);
 		assertFalse(cuilDevuelto);
 
 		
