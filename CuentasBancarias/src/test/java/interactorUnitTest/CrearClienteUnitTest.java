@@ -67,6 +67,11 @@ class RepositorioCliente implements IClienteRepositorio {
 
 	@Override
 	public boolean consultarClientePorCuil(String cuilClienteConsultado) {
-		return false;
+		return clientePorCuil;
+	}
+
+	@Override
+	public Cliente devolverClientePorId(Integer idCliente) {
+		return null;
 	}
 }
