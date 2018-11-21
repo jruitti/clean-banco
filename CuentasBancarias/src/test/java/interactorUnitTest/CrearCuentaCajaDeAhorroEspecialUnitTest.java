@@ -15,6 +15,7 @@ class CrearCuentaCajaDeAhorroEspecialUnitTest {
 	void crearCuentaCajaDeAhorroEspecial_CuentaCajaDeAhorroEspecialNoExiste_CuentaCreado() {
 		RepositorioCuentaCajaDeAhorroEspecial elRepositorioCuentaDeCajaAhorroEspecial = new RepositorioCuentaCajaDeAhorroEspecial();
 		elRepositorioCuentaDeCajaAhorroEspecial.existeCuenta = false;
+		elRepositorioCuentaDeCajaAhorroEspecial.resultado = true;
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
 		CuentaCajaDeAhorroEspecial laCuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("1", elCliente,1);
 		CrearCuentaCajaDeAhorroEspecialUseCase crearCrearCuentaCajaDeAhorroEspecialUseCase = new CrearCuentaCajaDeAhorroEspecialUseCase(
@@ -51,7 +52,7 @@ class RepositorioCuentaCajaDeAhorroEspecial implements ICuentaCajaDeAhorroEspeci
 	@Override
 	public boolean crearCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial) {
 		
-		return true;
+		return resultado;
 	}
 
 	@Override
