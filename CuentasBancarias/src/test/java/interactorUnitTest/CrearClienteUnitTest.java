@@ -46,6 +46,8 @@ class RepositorioCliente implements IClienteRepositorio {
 	public boolean existeCliente;
 	public boolean existeClienteId;
 	public boolean existeClientePorCuil;
+	public Cliente clienteDevuelto;
+	public List<Cliente> listaDeClientes;
 
 	@Override
 	public boolean guardarCliente(Cliente pCliente) {
@@ -81,11 +83,11 @@ class RepositorioCliente implements IClienteRepositorio {
 	@Override
 	public Cliente devolverClientePorId(Integer idCliente) {
 		// TODO Auto-generated method stub
-		return null;
+		return clienteDevuelto;
 	}
 	public List<Cliente> devolverClientesPorApellido(String apellido) {
 		// TODO Auto-generated method stub
-		return null;
+		return listaDeClientes;
 	}
 	
 }

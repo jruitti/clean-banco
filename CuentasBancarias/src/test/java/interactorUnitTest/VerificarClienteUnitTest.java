@@ -1,6 +1,8 @@
 package interactorUnitTest;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -95,6 +97,35 @@ public class VerificarClienteUnitTest {
 		
 		assertTrue(resultado);
 	}
+	
+	@Test
+	public void devolverClientePorId_ClienteNoExiste_DevuelveNull() {
+		
+		RepositorioCliente elRepositorio = new RepositorioCliente();
+		elRepositorio.clienteDevuelto=null;
+		
+		verificarClienteUseCase verificarClienteUseCase = new verificarClienteUseCase(elRepositorio);
+		
+		Cliente resultado  = verificarClienteUseCase.devolverClientePorId(1);
+		
+		assertNull(resultado);
+	}
+	
+	@Test
+	public void devolverClientePorId_ClienteExiste_DevuelveCliente() {
+		
+		RepositorioCliente elRepositorio = new RepositorioCliente();
+		elRepositorio.clienteDevuelto = Cliente.instancia(1,"Perez","Juan","20-12345678","San Martin 100");
+		
+		verificarClienteUseCase verificarClienteUseCase = new verificarClienteUseCase(elRepositorio);
+		
+		Cliente resultado  = verificarClienteUseCase.devolverClientePorId(1);
+		
+		assertNotNull(resultado);
+	}
+	
+	
+	
 }
 	
 
