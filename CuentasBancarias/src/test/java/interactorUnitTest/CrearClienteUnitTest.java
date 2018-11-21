@@ -71,7 +71,8 @@ class RepositorioCliente implements IClienteRepositorio {
 	}
 
 	@Override
-	public Cliente devolverClientePorId(Integer idCliente) {
-		return null;
+	public boolean verificarCliente(String cuilCliente, String apellido, String nombre) {
+		// TODO Auto-generated method stub
+		return existeCliente;
 	}
 }
