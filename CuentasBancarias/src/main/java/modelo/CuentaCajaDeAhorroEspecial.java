@@ -44,5 +44,10 @@ public class CuentaCajaDeAhorroEspecial extends Cuenta {
 		}
 	}
 	
+	public void modificarDatosDb(CuentaCajaDeAhorroEspecial cuentaCajaDeAhorroEspecial) {
+		this.setNumero(cuentaCajaDeAhorroEspecial.getNumero());
+		
+	}
+	
 
 }

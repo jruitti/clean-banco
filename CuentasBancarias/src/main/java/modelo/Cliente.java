@@ -74,4 +74,9 @@ public class Cliente {
 		
 	}
 
+	public void modificarClienteDb(Cliente personaCliente) {
+		this.setcUIL(personaCliente.getCuil());
+		
+	}
+
 }

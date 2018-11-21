@@ -15,4 +15,6 @@ public interface IClienteRepositorio {
 
 	public boolean existeClientePorId(Integer idCliente);
 
+	public Cliente devolverClientePorId(Integer idCliente);
+
 }

@@ -1,5 +1,6 @@
 package repositorio;
 
+import interactorUnitTest.ModificarCajaDeAhorroEspecialUnitTest;
 import modelo.CuentaCajaDeAhorroEspecial;
 
 
@@ -10,5 +11,8 @@ public interface ICuentaCajaDeAhorroEspecialRepositorio {
 	public boolean modificarCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial);
 	public boolean guardarCajaAhorroEspecial(CuentaCajaDeAhorroEspecial nuevaCuenta);
 	public boolean actualizarCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial laCuenta);
+	public CuentaCajaDeAhorroEspecial devuelveCuentaPorId(Integer idCuenta);
+	public boolean existeNumeroCuentaCajaDeAhorroEspecial(String numeroCuenta);
+	
 	
 }
