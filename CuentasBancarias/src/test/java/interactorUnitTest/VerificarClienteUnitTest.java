@@ -7,7 +7,7 @@ import org.junit.Test;
 import interactor.verificarClienteUseCase;
 import modelo.Cliente;
 
-public class VerificararClienteUnitTest {
+public class VerificarClienteUnitTest {
 	@Test
 	public void verificarCliente_ClienteExiste_ClienteDevuelto() {
 		RepositorioCliente elRepositorio = new RepositorioCliente();

@@ -50,7 +50,7 @@ public class ModificarClienteUnitTest {
 		}
 
 		@Override
-		public boolean existeCliente(Cliente persCliente) {
+		public boolean verificarCliente(Cliente persCliente) {
 			return false;
 		}
 
@@ -60,12 +60,12 @@ public class ModificarClienteUnitTest {
 		}
 
 		@Override
-		public boolean existeClientePorId(Integer idCliente) {
+		public boolean verificarClientePorId(Integer idCliente) {
 			return existeId;
 		}
 
 		@Override
-		public boolean consultarClientePorCuil(String cuilClienteConsultado) {
+		public boolean verificarClientePorCuil(String cuilClienteConsultado) {
 			return true;
 		}
 

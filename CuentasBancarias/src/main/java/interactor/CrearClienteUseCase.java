@@ -12,7 +12,7 @@ public class CrearClienteUseCase {
 	}
 
 	public boolean crearCliente(Cliente elCliente) {
-		if (!elRepositorio.existeCliente(elCliente)) {
+		if (!elRepositorio.verificarCliente(elCliente)) {
 			return elRepositorio.guardarCliente(elCliente);
 		}
 		return false;
