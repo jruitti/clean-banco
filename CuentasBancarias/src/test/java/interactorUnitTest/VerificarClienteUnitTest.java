@@ -4,6 +4,10 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 import interactor.verificarClienteUseCase;
@@ -124,6 +128,24 @@ public class VerificarClienteUnitTest {
 		assertNotNull(resultado);
 	}
 	
+	@Test
+	public void devolverClientesPorApellido_ClientesExisten_DevuelveListaConCliente() {
+		
+		RepositorioCliente elRepositorio = new RepositorioCliente();
+		elRepositorio.listaDeClientes= new ArrayList<>();
+		Cliente c1 = Cliente.instancia(1,"Perez","Juan","20-12345678","San Martin 100");
+		Cliente c2 = Cliente.instancia(2,"Perez","pedro","40-12345678","San Martin 150");
+		
+		elRepositorio.listaDeClientes.add(c1);
+		elRepositorio.listaDeClientes.add(c2);
+		
+		verificarClienteUseCase verificarClienteUseCase = new verificarClienteUseCase(elRepositorio);
+		
+		List<Cliente> resultado  = verificarClienteUseCase.devolverClientesPorApellido("perez");
+		
+		assertNotNull(resultado);		
+		assertEquals(2, elRepositorio.listaDeClientes.size());
+	}
 	
 	
 }

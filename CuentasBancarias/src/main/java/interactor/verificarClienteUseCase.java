@@ -1,5 +1,7 @@
 package interactor;
 
+import java.util.List;
+
 import modelo.Cliente;
 import repositorio.IClienteRepositorio;
 
@@ -28,6 +30,10 @@ public class verificarClienteUseCase {
 	
 	public Cliente devolverClientePorId(int id){
 		return elRepositorio.devolverClientePorId(id);
+	}
+	
+	public List<Cliente> devolverClientesPorApellido(String apellido){
+		return elRepositorio.devolverClientesPorApellido(apellido);
 	}
 
 

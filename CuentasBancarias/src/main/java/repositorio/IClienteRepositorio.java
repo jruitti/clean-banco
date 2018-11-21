@@ -1,5 +1,7 @@
 package repositorio;
 
+import java.util.List;
+
 import modelo.Cliente;
 
 public interface IClienteRepositorio {
@@ -16,5 +18,7 @@ public interface IClienteRepositorio {
 	public boolean verificarClientePorId(Integer idCliente);
 
 	public Cliente devolverClientePorId(Integer idCliente);
+	
+	public List<Cliente> devolverClientesPorApellido(String apellido);
 
 }

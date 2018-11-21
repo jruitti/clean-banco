@@ -3,6 +3,8 @@ package interactorUnitTest;
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import java.util.List;
+
 import org.junit.Test;
 
 import interactor.ModificarClienteUseCase;
@@ -44,6 +46,7 @@ public class ModificarClienteUnitTest {
 	class ClienteRepositorio implements IClienteRepositorio {
 		public boolean existeId;
 		public boolean resultado;
+		public List<Cliente> listaDeClientes;
 
 		@Override
 		public boolean guardarCliente(Cliente persCliente) {
@@ -79,6 +82,11 @@ public class ModificarClienteUnitTest {
 		@Override
 		public boolean verificarCliente(String cuilCliente, String apellido, String nombre) {
 			return false;
+		}
+		@Override
+		public List<Cliente> devolverClientesPorApellido(String apellido) {
+			// TODO Auto-generated method stub
+			return listaDeClientes;
 		}
 
 	}
