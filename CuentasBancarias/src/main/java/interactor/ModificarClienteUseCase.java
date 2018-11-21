@@ -13,7 +13,7 @@ public class ModificarClienteUseCase {
 	public boolean modificarCliente(Cliente personaCliente) {
 		Cliente clienteDb = elRepositorio.devolverClientePorId(personaCliente.getIdCliente());
 		
- 		if (personaCliente.getCuil().equals(clienteDb.getCuil())||elRepositorio.consultarClientePorCuil(personaCliente.getCuil())) {
+ 		if (personaCliente.getCuil().equals(clienteDb.getCuil())||elRepositorio.verificarClientePorCuil(personaCliente.getCuil())) {
  			clienteDb.modificarClienteDb(personaCliente);
 			return elRepositorio.modificarCliente(clienteDb);
 		}

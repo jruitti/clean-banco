@@ -2,6 +2,8 @@ package interactorUnitTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 import interactor.CrearClienteUseCase;
@@ -56,17 +58,17 @@ class RepositorioCliente implements IClienteRepositorio {
 	}
 
 	@Override
-	public boolean existeCliente(Cliente persCliente) {
+	public boolean verificarCliente(Cliente persCliente) {
 		return existeCliente;
 	}
 
 	@Override
-	public boolean existeClientePorId(Integer idCliente) {	
+	public boolean verificarClientePorId(Integer idCliente) {	
 		return existeId;
 	}
 
 	@Override
-	public boolean consultarClientePorCuil(String cuilClienteConsultado) {
+	public boolean verificarClientePorCuil(String cuilClienteConsultado) {
 		return clientePorCuil;
 	}
 
@@ -81,4 +83,9 @@ class RepositorioCliente implements IClienteRepositorio {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public List<Cliente> devolverClientesPorApellido(String apellido) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }
