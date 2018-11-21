@@ -44,8 +44,8 @@ class RepositorioCliente implements IClienteRepositorio {
 
 	public boolean resultado;
 	public boolean existeCliente;
-	public boolean existeId;
-	public boolean clientePorCuil;
+	public boolean existeClienteId;
+	public boolean existeClientePorCuil;
 
 	@Override
 	public boolean guardarCliente(Cliente pCliente) {
@@ -64,12 +64,12 @@ class RepositorioCliente implements IClienteRepositorio {
 
 	@Override
 	public boolean verificarClientePorId(Integer idCliente) {	
-		return existeId;
+		return existeClienteId;
 	}
 
 	@Override
 	public boolean verificarClientePorCuil(String cuilClienteConsultado) {
-		return clientePorCuil;
+		return existeClientePorCuil;
 	}
 
 	@Override

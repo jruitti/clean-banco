@@ -17,7 +17,7 @@ public class ModificarClienteUnitTest {
 	@Test
 	public void modificarClientePorId_IdNoExiste_SeModificaCliente() {
 		RepositorioCliente elRepositorio = new RepositorioCliente();
-		elRepositorio.existeId = true;
+		elRepositorio.existeClienteId = true;
 
 		Cliente elCliente = Cliente.instancia(1, "Pez", "Javier", "1234", "San Jose");
 		ModificarClienteUseCase modificarCliente = new ModificarClienteUseCase(elRepositorio);
@@ -29,7 +29,7 @@ public class ModificarClienteUnitTest {
 	@Test
 	public void modificarClientePorId_IdExiste_NoSeModificaCliente() {
 		RepositorioCliente elRepositorio = new RepositorioCliente();
-		elRepositorio.existeId = false;
+		elRepositorio.existeClienteId = false;
 		elRepositorio.resultado=false;
 
 		Cliente elCliente = Cliente.instancia(1, "Pez", "Javier", "1234", "San Jose");

@@ -15,9 +15,11 @@ public class verificarClienteUseCase {
 		if(elRepositorio.verificarCliente(clienteAVerificar.getCuil(), clienteAVerificar.getApellido(), clienteAVerificar.getNombre() ) ) {
 			return true;
 		}
-		return false;
-		
-		
+		return false;		
+	}
+	
+	public boolean verificarClientePorId(int clienteId){
+		return elRepositorio.verificarClientePorId(clienteId);
 	}
 
 }

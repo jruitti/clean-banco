@@ -9,7 +9,7 @@ import modelo.Cliente;
 
 public class VerificarClienteUnitTest {
 	@Test
-	public void verificarCliente_ClienteExiste_ClienteDevuelto() {
+	public void verificarCliente_ClienteExiste_DevuelveTrue() {
 		RepositorioCliente elRepositorio = new RepositorioCliente();
 		elRepositorio.existeCliente= true;
 		
@@ -23,7 +23,7 @@ public class VerificarClienteUnitTest {
 	}
 	
 	@Test
-	public void verificarCliente_ClienteNoExiste_ClienteNoDevuelto() {
+	public void verificarCliente_ClienteNoExiste_DevuelveFalse() {
 		RepositorioCliente elRepositorio = new RepositorioCliente();
 		elRepositorio.existeCliente = false;
 		
@@ -34,6 +34,36 @@ public class VerificarClienteUnitTest {
 		boolean resultado  = verificarClienteUseCase.verificarCliente(elCliente);
 		
 		assertFalse(resultado);
+	}
+	
+	@Test
+	public void verificarClientePorId_ClienteNoExiste_DevuelveFalse() {
+		
+		RepositorioCliente elRepositorio = new RepositorioCliente();
+		elRepositorio.existeClienteId = false;
+		
+		Cliente elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678","San Martin 100");
+		
+		verificarClienteUseCase verificarClienteUseCase = new verificarClienteUseCase(elRepositorio);
+		
+		boolean resultado  = verificarClienteUseCase.verificarClientePorId(2);
+		
+		assertFalse(resultado);
+	}
+	
+	@Test
+	public void verificarClientePorId_ClienteExiste_DevuelveTrue() {
+		
+		RepositorioCliente elRepositorio = new RepositorioCliente();
+		elRepositorio.existeClienteId = true;
+		
+		Cliente elCliente=Cliente.instancia(1,"Perez","Juan","20-12345678","San Martin 100");
+		
+		verificarClienteUseCase verificarClienteUseCase = new verificarClienteUseCase(elRepositorio);
+		
+		boolean resultado  = verificarClienteUseCase.verificarClientePorId(1);
+		
+		assertTrue(resultado);
 	}
 }
 	
