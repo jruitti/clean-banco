@@ -16,7 +16,7 @@ class CrearCuentaCajaDeAhorroEspecialUnitTest {
 		RepositorioCuentaCajaDeAhorroEspecial elRepositorioCuentaDeCajaAhorroEspecial = new RepositorioCuentaCajaDeAhorroEspecial();
 		elRepositorioCuentaDeCajaAhorroEspecial.existeCuenta = false;
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
-		CuentaCajaDeAhorroEspecial laCuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("1", elCliente);
+		CuentaCajaDeAhorroEspecial laCuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("1", elCliente,1);
 		CrearCuentaCajaDeAhorroEspecialUseCase crearCrearCuentaCajaDeAhorroEspecialUseCase = new CrearCuentaCajaDeAhorroEspecialUseCase(
 				elRepositorioCuentaDeCajaAhorroEspecial);
 
@@ -31,7 +31,7 @@ class CrearCuentaCajaDeAhorroEspecialUnitTest {
 		RepositorioCuentaCajaDeAhorroEspecial elRepositorioCuentaDeCajaAhorroEspecial = new RepositorioCuentaCajaDeAhorroEspecial();
 		elRepositorioCuentaDeCajaAhorroEspecial.existeCuenta = true;
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
-		CuentaCajaDeAhorroEspecial laCuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("1", elCliente);
+		CuentaCajaDeAhorroEspecial laCuentaCajaDeAhorroEspecial = CuentaCajaDeAhorroEspecial.instancia("1", elCliente,1);
 		CrearCuentaCajaDeAhorroEspecialUseCase crearCrearCuentaCajaDeAhorroEspecialUseCase = new CrearCuentaCajaDeAhorroEspecialUseCase(
 				elRepositorioCuentaDeCajaAhorroEspecial);
 
@@ -50,37 +50,32 @@ class RepositorioCuentaCajaDeAhorroEspecial implements ICuentaCajaDeAhorroEspeci
 
 	@Override
 	public boolean crearCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial) {
-		// TODO Auto-generated method stub
+		
 		return true;
 	}
 
 	@Override
 	public boolean modificarCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial) {
-		// TODO Auto-generated method stub
+		
 		return true;
 	}
 
 	@Override
 	public boolean guardarCajaAhorroEspecial(CuentaCajaDeAhorroEspecial nuevaCuenta) {
-		// TODO Auto-generated method stub
+		
 		return true;
 	}
 
 	@Override
 	public boolean existeCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial persCuentaCajaDeAhorroEspecial) {
-		// TODO Ap�ndice de m�todo generado autom�ticamente
-		return existeCuenta;
-	}
+		
+		return existeCuenta;	}
+
+	
 
 	@Override
-	public boolean ExtraerDineroCajaAhorroEspecial(float dinero) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean consultarCuentaCajaDeAhorro(CuentaCajaDeAhorroEspecial laCuenta) {
-		// TODO Auto-generated method stub
+	public boolean actualizarCuentaCajaDeAhorroEspecial(CuentaCajaDeAhorroEspecial laCuenta) {
+		
 		return false;
 	}
 }

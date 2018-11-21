@@ -21,7 +21,7 @@ public class ExtraerDineroCajaDeAhorroEspecialTest {
 		LocalDate ultimaExtraccion = LocalDate.of(2018, 10, 12);
 		LocalDate fechaActual = LocalDate.of(2018, 11, 10);
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
-		CuentaCajaDeAhorroEspecial laCuenta = CuentaCajaDeAhorroEspecial.instancia("1000", elCliente);
+		CuentaCajaDeAhorroEspecial laCuenta = CuentaCajaDeAhorroEspecial.instancia("1000", elCliente,1);
 		laCuenta.actualizarFechaUltima(ultimaExtraccion);
 		laCuenta.depositar(1000);
 		ExtraerDineroCajaDeAhorroEspecial extraerDineroCajaAhorro = new ExtraerDineroCajaDeAhorroEspecial(
@@ -41,7 +41,7 @@ public class ExtraerDineroCajaDeAhorroEspecialTest {
 		LocalDate fechaActual = LocalDate.of(2018, 10, 14);
 		Cliente elCliente = Cliente.instancia(1, "Perez", "Juan", "20-12345678-4", "San Martin 100");
 		
-		CuentaCajaDeAhorroEspecial laCuenta = CuentaCajaDeAhorroEspecial.instancia("1000", elCliente);
+		CuentaCajaDeAhorroEspecial laCuenta = CuentaCajaDeAhorroEspecial.instancia("1000", elCliente,1);
 		laCuenta.actualizarFechaUltima(ultimaExtraccion);
 		laCuenta.depositar(1000);
 		ExtraerDineroCajaDeAhorroEspecial extraerDineroCajaAhorro = new ExtraerDineroCajaDeAhorroEspecial(
