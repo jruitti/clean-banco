@@ -10,7 +10,6 @@ public class CrearClienteUseCase {
 	public CrearClienteUseCase(IClienteRepositorio elRepositorio) {
 		this.elRepositorio = elRepositorio;
 	}
-
 	public boolean crearCliente(Cliente elCliente) {
 		if (!elRepositorio.verificarCliente(elCliente)) {
 			return elRepositorio.guardarCliente(elCliente);

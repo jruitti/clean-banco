@@ -1,11 +1,10 @@
 package modeloUnitTest;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 import java.time.LocalDate;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import modelo.Cliente;
 import modelo.CuentaCajaDeAhorroEspecial;
 
